@@ -1,0 +1,245 @@
+{
+  "schema": 1,
+  "snapshot_date": "2026-11-04",
+  "proof_date": "2026-09-05",
+  "files": [
+    {
+      "path": "records/CANDIDATES/C0002_resolvent_path_transfer/AUTHOR_INPUTS_v1.md",
+      "source_sha256": "a322ca4a495d06567b9e6e0e4aa317fc411d6a1af630dc970354f05078147973",
+      "public_sha256": "a322ca4a495d06567b9e6e0e4aa317fc411d6a1af630dc970354f05078147973",
+      "redactions": 0,
+      "change": "None; exact bytes"
+    },
+    {
+      "path": "records/CANDIDATES/C0002_resolvent_path_transfer/BRIEF_v1.md",
+      "source_sha256": "ec44f79e9849a71bc2cad4d75978ffdde78b8748c83bbeb5e991d4529a92b192",
+      "public_sha256": "ec44f79e9849a71bc2cad4d75978ffdde78b8748c83bbeb5e991d4529a92b192",
+      "redactions": 0,
+      "change": "None; exact bytes"
+    },
+    {
+      "path": "records/CANDIDATES/C0002_resolvent_path_transfer/CONTRACT_v1.md",
+      "source_sha256": "d42cb0e8db6e9667f77d45f7e4d54994179e48b206fb343af6e50eaf67057c6b",
+      "public_sha256": "d42cb0e8db6e9667f77d45f7e4d54994179e48b206fb343af6e50eaf67057c6b",
+      "redactions": 0,
+      "change": "None; exact bytes"
+    },
+    {
+      "path": "records/CANDIDATES/C0002_resolvent_path_transfer/PROOF_v1.md",
+      "source_sha256": "a4ac45c0bd121273dbdbc96b416b5ba6270564c7ea954ded92537ef059b2600e",
+      "public_sha256": "a4ac45c0bd121273dbdbc96b416b5ba6270564c7ea954ded92537ef059b2600e",
+      "redactions": 0,
+      "change": "None; exact bytes"
+    },
+    {
+      "path": "records/CANDIDATES/C0002_resolvent_path_transfer/PROOF_v2.md",
+      "source_sha256": "dc06b8b7e052bc994905afaa3b7fe168d7cde233dfa52e5e0355f5458c809a06",
+      "public_sha256": "dc06b8b7e052bc994905afaa3b7fe168d7cde233dfa52e5e0355f5458c809a06",
+      "redactions": 0,
+      "change": "None; exact bytes"
+    },
+    {
+      "path": "records/CANDIDATES/C0002_resolvent_path_transfer/VERSION_NOTE_v2.md",
+      "source_sha256": "9d8681bf0fc841aac101a5afc0108101441e83621d6220738d6c6b111647dede",
+      "public_sha256": "9d8681bf0fc841aac101a5afc0108101441e83621d6220738d6c6b111647dede",
+      "redactions": 0,
+      "change": "None; exact bytes"
+    },
+    {
+      "path": "records/CANDIDATES/C0005_harmonic_correctors/AUTHOR_INPUTS_v1.md",
+      "source_sha256": "55d8c34dd69c4366b8eb64037e032e36bb1d2ee2cb0921dd466082637c07c53d",
+      "public_sha256": "55d8c34dd69c4366b8eb64037e032e36bb1d2ee2cb0921dd466082637c07c53d",
+      "redactions": 0,
+      "change": "None; exact bytes"
+    },
+    {
+      "path": "records/CANDIDATES/C0005_harmonic_correctors/AUTHOR_INPUTS_v2.md",
+      "source_sha256": "5920bb21d0520d0e0407b58140b31c193c866138e8da9a90e665306f4a2014af",
+      "public_sha256": "5920bb21d0520d0e0407b58140b31c193c866138e8da9a90e665306f4a2014af",
+      "redactions": 0,
+      "change": "None; exact bytes"
+    },
+    {
+      "path": "records/CANDIDATES/C0005_harmonic_correctors/BRIEF_v1.md",
+      "source_sha256": "86963226ce3ec177f4a6a20b21bdea6d2770dea107a79e85b9fd5b9bb2ffc351",
+      "public_sha256": "86963226ce3ec177f4a6a20b21bdea6d2770dea107a79e85b9fd5b9bb2ffc351",
+      "redactions": 0,
+      "change": "None; exact bytes"
+    },
+    {
+      "path": "records/CANDIDATES/C0005_harmonic_correctors/BRIEF_v2.md",
+      "source_sha256": "35a10be2298890820aeeb7ab72d47e3a0602f9ea7907cbd20666648353ed4e5b",
+      "public_sha256": "35a10be2298890820aeeb7ab72d47e3a0602f9ea7907cbd20666648353ed4e5b",
+      "redactions": 0,
+      "change": "None; exact bytes"
+    },
+    {
+      "path": "records/CANDIDATES/C0005_harmonic_correctors/CONTRACT_initial_written_draft.md",
+      "source_sha256": "27c16421ccd86d057f687b8100676c27cc603dc9d6212031649b56e8f2617970",
+      "public_sha256": "27c16421ccd86d057f687b8100676c27cc603dc9d6212031649b56e8f2617970",
+      "redactions": 0,
+      "change": "None; exact bytes"
+    },
+    {
+      "path": "records/CANDIDATES/C0005_harmonic_correctors/CONTRACT_v1.md",
+      "source_sha256": "4fa850e20b2eec486404aefec1c003968544460fc83721a796fd5037cd4aa7bc",
+      "public_sha256": "4fa850e20b2eec486404aefec1c003968544460fc83721a796fd5037cd4aa7bc",
+      "redactions": 0,
+      "change": "None; exact bytes"
+    },
+    {
+      "path": "records/CANDIDATES/C0005_harmonic_correctors/CONTRACT_v2.md",
+      "source_sha256": "0a0130d01e482dbe546a19248b1ca67180aa373643dace7a87abc5cff8eb8cec",
+      "public_sha256": "0a0130d01e482dbe546a19248b1ca67180aa373643dace7a87abc5cff8eb8cec",
+      "redactions": 0,
+      "change": "None; exact bytes"
+    },
+    {
+      "path": "records/CANDIDATES/C0005_harmonic_correctors/PROOF_initial_written_draft.md",
+      "source_sha256": "9663f84e7fcf6002a351e1fbce9e3c1ce42d6b97c4846bae90383509a16520d7",
+      "public_sha256": "9663f84e7fcf6002a351e1fbce9e3c1ce42d6b97c4846bae90383509a16520d7",
+      "redactions": 0,
+      "change": "None; exact bytes"
+    },
+    {
+      "path": "records/CANDIDATES/C0005_harmonic_correctors/PROOF_v1.md",
+      "source_sha256": "371c63744240b5b878fc7d9a7f656f953300f23cbb51bd710d3d2dab6fbfd90e",
+      "public_sha256": "371c63744240b5b878fc7d9a7f656f953300f23cbb51bd710d3d2dab6fbfd90e",
+      "redactions": 0,
+      "change": "None; exact bytes"
+    },
+    {
+      "path": "records/CANDIDATES/C0005_harmonic_correctors/PROOF_v2.md",
+      "source_sha256": "68a9fec530428b3fd61e9f3bef1564e3ad3bcbd905d0cf0b51801a58bd6fc5ef",
+      "public_sha256": "68a9fec530428b3fd61e9f3bef1564e3ad3bcbd905d0cf0b51801a58bd6fc5ef",
+      "redactions": 0,
+      "change": "None; exact bytes"
+    },
+    {
+      "path": "records/CANDIDATES/C0005_harmonic_correctors/VERSION_NOTE_v2.md",
+      "source_sha256": "7668913510162e6696be80d39627345268726419bf27289cf08eaea2fed0d35f",
+      "public_sha256": "7668913510162e6696be80d39627345268726419bf27289cf08eaea2fed0d35f",
+      "redactions": 0,
+      "change": "None; exact bytes"
+    },
+    {
+      "path": "records/CANDIDATES/C0006_uniform_thin_layers/AUTHOR_INPUTS_v1.md",
+      "source_sha256": "c8b1fea05210b4ea08a836d9bbfa6b7b8dad44540e905f87686f7ba4ec72ef24",
+      "public_sha256": "c8b1fea05210b4ea08a836d9bbfa6b7b8dad44540e905f87686f7ba4ec72ef24",
+      "redactions": 0,
+      "change": "None; exact bytes"
+    },
+    {
+      "path": "records/CANDIDATES/C0006_uniform_thin_layers/AUTHOR_INPUTS_v2.md",
+      "source_sha256": "502f46c6cf2b3ebe1df16574e164f3283f1041322678e47f89de3e200e3ea4f9",
+      "public_sha256": "502f46c6cf2b3ebe1df16574e164f3283f1041322678e47f89de3e200e3ea4f9",
+      "redactions": 0,
+      "change": "None; exact bytes"
+    },
+    {
+      "path": "records/CANDIDATES/C0006_uniform_thin_layers/BRIEF_v1.md",
+      "source_sha256": "41016fe08f92026feb4ec32ef85ec416f3774090a591f2418fcd5ad72c3128aa",
+      "public_sha256": "41016fe08f92026feb4ec32ef85ec416f3774090a591f2418fcd5ad72c3128aa",
+      "redactions": 0,
+      "change": "None; exact bytes"
+    },
+    {
+      "path": "records/CANDIDATES/C0006_uniform_thin_layers/BRIEF_v2.md",
+      "source_sha256": "48c8eb60d02da1a0a186d5d040a48e3c8b12bfd7fda553352feb29e9f1848086",
+      "public_sha256": "48c8eb60d02da1a0a186d5d040a48e3c8b12bfd7fda553352feb29e9f1848086",
+      "redactions": 0,
+      "change": "None; exact bytes"
+    },
+    {
+      "path": "records/CANDIDATES/C0006_uniform_thin_layers/CONTRACT_v1.md",
+      "source_sha256": "9bac2b8f056afd30cc1bd609440d10875d2c8c5a6fdf68d71772de0fba03bd10",
+      "public_sha256": "9bac2b8f056afd30cc1bd609440d10875d2c8c5a6fdf68d71772de0fba03bd10",
+      "redactions": 0,
+      "change": "None; exact bytes"
+    },
+    {
+      "path": "records/CANDIDATES/C0006_uniform_thin_layers/CONTRACT_v2.md",
+      "source_sha256": "805ea9a15da4e350f0af208075932c45473a8f499a89f77f050c6c916c4891b9",
+      "public_sha256": "805ea9a15da4e350f0af208075932c45473a8f499a89f77f050c6c916c4891b9",
+      "redactions": 0,
+      "change": "None; exact bytes"
+    },
+    {
+      "path": "records/CANDIDATES/C0006_uniform_thin_layers/PROOF_v1.md",
+      "source_sha256": "be4509dbb4279b36d4a154aa980413c7a8eb9af5135e37401fdf75aa899e9bd5",
+      "public_sha256": "be4509dbb4279b36d4a154aa980413c7a8eb9af5135e37401fdf75aa899e9bd5",
+      "redactions": 0,
+      "change": "None; exact bytes"
+    },
+    {
+      "path": "records/CANDIDATES/C0006_uniform_thin_layers/PROOF_v2.md",
+      "source_sha256": "2e59d3955d1e3a69d433bf79e5f4e09f2c55eadd019b59cc31f2cab5dc1be60b",
+      "public_sha256": "2e59d3955d1e3a69d433bf79e5f4e09f2c55eadd019b59cc31f2cab5dc1be60b",
+      "redactions": 0,
+      "change": "None; exact bytes"
+    },
+    {
+      "path": "records/CANDIDATES/C0006_uniform_thin_layers/PROOF_v3.md",
+      "source_sha256": "9a4e9936a55b8e4179c3c964eb297236ac06d008425bb64f9e48eb4856dc4186",
+      "public_sha256": "9a4e9936a55b8e4179c3c964eb297236ac06d008425bb64f9e48eb4856dc4186",
+      "redactions": 0,
+      "change": "None; exact bytes"
+    },
+    {
+      "path": "records/CANDIDATES/C0008_full_mass_convergence/AUTHOR_INPUTS_v1.md",
+      "source_sha256": "b7eadc69c7421c8dad47d989c8943d0cdb5e4c78ed527338cf09c60c01c3b78c",
+      "public_sha256": "b7eadc69c7421c8dad47d989c8943d0cdb5e4c78ed527338cf09c60c01c3b78c",
+      "redactions": 0,
+      "change": "None; exact bytes"
+    },
+    {
+      "path": "records/CANDIDATES/C0008_full_mass_convergence/BRIEF_v1.md",
+      "source_sha256": "ec0c06433d0303df9a8c0120373103beed8b0f53687011f2b4b5834bf5c139f4",
+      "public_sha256": "ec0c06433d0303df9a8c0120373103beed8b0f53687011f2b4b5834bf5c139f4",
+      "redactions": 0,
+      "change": "None; exact bytes"
+    },
+    {
+      "path": "records/CANDIDATES/C0008_full_mass_convergence/CONTRACT_v1.md",
+      "source_sha256": "56bde5e0c1f439c43bf600aa9f0783b4f7da9ba8c6648e05072373af92b040cd",
+      "public_sha256": "56bde5e0c1f439c43bf600aa9f0783b4f7da9ba8c6648e05072373af92b040cd",
+      "redactions": 0,
+      "change": "None; exact bytes"
+    },
+    {
+      "path": "records/CANDIDATES/C0008_full_mass_convergence/PROOF_v1.md",
+      "source_sha256": "8d97fd0abba1232e8befd553489dd88a5239dbbdb962a8472e7e050dc9408868",
+      "public_sha256": "8d97fd0abba1232e8befd553489dd88a5239dbbdb962a8472e7e050dc9408868",
+      "redactions": 0,
+      "change": "None; exact bytes"
+    },
+    {
+      "path": "records/RAW_PROOF_v3.md",
+      "source_sha256": "b3f3eab86cdacd16a66661f53f0d3d7ac19fc619c72778c86bed63a0ce3b01f0",
+      "public_sha256": "b3f3eab86cdacd16a66661f53f0d3d7ac19fc619c72778c86bed63a0ce3b01f0",
+      "redactions": 0,
+      "change": "New Raw revision 3 record; exact bytes"
+    },
+    {
+      "path": "records/RAW_PROOF_v4.md",
+      "source_sha256": "1dcc4b1aec05ed3986be784f489e48f3f7b336e12ec358fe909ca8695ad47f32",
+      "public_sha256": "1dcc4b1aec05ed3986be784f489e48f3f7b336e12ec358fe909ca8695ad47f32",
+      "redactions": 0,
+      "change": "New arbitrary-initial-profile record; exact bytes"
+    },
+    {
+      "path": "records/STATEMENT.md",
+      "source_sha256": "ca925b943f2dc5573b840512e12ebd5f38fbdb15df7a6b02c3dd72f7ac698a97",
+      "public_sha256": "ca925b943f2dc5573b840512e12ebd5f38fbdb15df7a6b02c3dd72f7ac698a97",
+      "redactions": 0,
+      "change": "None; exact bytes"
+    },
+    {
+      "path": "records/STATEMENT_v2.md",
+      "source_sha256": "ce1706a0a839ef4697ed462cca7654128a0ef795398e5e0795c60f9b4f26203f",
+      "public_sha256": "ce1706a0a839ef4697ed462cca7654128a0ef795398e5e0795c60f9b4f26203f",
+      "redactions": 0,
+      "change": "New arbitrary-initial-profile record; exact bytes"
+    }
+  ]
+}

@@ -1,0 +1,1478 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Raw · Sticky Inclusion · Condensation and Inclusion</title>
+    <link rel="stylesheet" href="../../../assets/style.css">
+    <script>
+      window.MathJax = {
+        tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+          processEscapes: true, tags: 'ams' }
+      };
+    </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml-full.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Condensation and Inclusion</h1>
+        <nav class="menu" aria-label="Main">
+        <a href="../../../">Home</a>
+        <span class="sep" aria-hidden="true">·</span>
+        <a href="../../" aria-current="location">Topics</a>
+        <span class="sep" aria-hidden="true">·</span>
+        <a href="../../../literature/">Literature</a>
+      </nav>
+      </header>
+      <hr>
+      <main>
+      <h2>Sticky Inclusion</h2>
+      <nav class="menu" aria-label="Topic">
+        <a href="../">Overview</a>
+        <span class="sep" aria-hidden="true">·</span>
+        <a href="../digested/">Digested</a>
+        <span class="sep" aria-hidden="true">·</span>
+        <a href="./" aria-current="page">Raw</a>
+      </nav>
+      <hr>
+<article aria-labelledby="manuscript-title">
+<h3 id="manuscript-title">From inclusion to sticky Brownian mass flow</h3>
+<p class="ai-note">This proof was written by an AI model. No human or outside-family model audit is recorded.</p>
+<p class="abstract"><strong>Abstract.</strong> We study the symmetric inclusion process on a discrete circle. Assume \(N/L_N\to\rho\in(0,\infty)\) and \(Nd_N\to\Theta\in(0,\infty)\). Under time acceleration \(N^2/d_N\), the empirical mass process converges to the Le Jan–Raimond sticky Brownian mass flow. The initial empirical measures may converge to any probability measure, including a diffuse measure. No bound on the number of occupied sites or their separation is required. The convergence holds in the Skorokhod \(J_1\) topology, with a continuous limit. We first prove path convergence at every fixed order of an auxiliary inclusion process. Harmonic corrections give the splitting rates. A conditional occupation bound controls positive collision layers. A sampling identity then gives uniform convergence of the mass semigroups. This yields tightness and identifies the full mass path law.</p>
+<p><strong>Motivation.</strong> This problem is motivated by Seonwoo Kim and Claudio Landim, <a href="https://arxiv.org/abs/2605.00542v1"><em>Convergence of the Condensing Symmetric Inclusion Process on the Torus in the Thermodynamical Limit to Coalescing Brownian Motions</em></a>. They study the same inclusion process, with time acceleration \(N^2/d_N\), from finitely many isolated condensates. Under \(d_NN^3\log N\to0\), they prove convergence of the condensate positions to coalescing Brownian motions. The present work asks for the full mass-process limit in the critical regime \(Nd_N\to\Theta\in(0,\infty)\), where the target is a sticky Brownian mass flow.</p>
+<h4 id="contents">Contents</h4>
+<nav class="toc" aria-labelledby="contents">
+<ul>
+<li><a href="#1-statement">1. Statement</a></li>
+<li><a href="#2-circle-traces-and-tightness">2. Circle traces and tightness</a></li>
+<li><a href="#3-collision-terms-and-microscopic-convergence">3. Collision terms and microscopic convergence</a></li>
+<li><a href="#4-identification-of-the-continuum-target">4. Identification of the continuum target</a></li>
+<li><a href="#5-convergence-of-the-full-mass-process">5. Convergence of the full mass process</a></li>
+<li><a href="#a-harmonic-corrections-and-trace-estimates">A. Harmonic corrections and trace estimates</a></li>
+<li><a href="#b-sampling-and-positive-layer-occupation">B. Sampling and positive-layer occupation</a></li>
+<li><a href="#c-from-semigroups-to-path-laws">C. From semigroups to path laws</a></li>
+<li><a href="#references-and-standard-results">References and standard results</a></li>
+</ul>
+</nav>
+<h3 id="1-statement">1. Statement</h3>
+<p>For each positive integer \(N\), let \(L_N\) be a positive integer and let \(d_N&gt;0\).
+Assume
+\[
+\frac{N}{L_N}\longrightarrow\rho\in(0,\infty),
+\qquad
+Nd_N\longrightarrow\Theta\in(0,\infty).
+\]
+Set \(\alpha=\Theta/\rho\), so that \(L_Nd_N\to\alpha\).
+Let \(\mathbb T=\mathbb R/\mathbb Z\), and let \(\lambda\) be its normalized Haar measure.
+Define
+\[
+\mathbb T_{L_N}=\mathbb Z/(L_N\mathbb Z),
+\qquad
+\Omega_N=
+\left\{\eta\in\mathbb N_0^{\mathbb T_{L_N}}:
+\sum_{x\in\mathbb T_{L_N}}\eta_x=N\right\}.
+\]
+Let \(\eta_N\) be the continuous-time Markov chain on \(\Omega_N\) with generator
+\[
+\mathcal L_NF(\eta)=\frac{N^2}{d_N}
+\sum_{x\in\mathbb T_{L_N}}\sum_{y=x\pm1}
+\eta_x(d_N+\eta_y)
+\bigl[F(\eta-\delta_x+\delta_y)-F(\eta)\bigr].
+\]
+The sum includes both directed nearest-neighbor jumps.
+The generator includes the acceleration \(N^2/d_N\).
+Since \(L_N\to\infty\), only tori with \(L_N\ge3\) affect the limit.
+The limiting one-particle generator is \(\rho^2\partial_{xx}\).
+Define the empirical mass map and its process by
+\[
+\Phi_N(\eta)=\frac1N\sum_{x\in\mathbb T_{L_N}}
+\eta_x\delta_{x/L_N},
+\qquad
+\mu_N(t)=\Phi_N(\eta_N(t)).
+\]</p>
+<p>For \(n\ge1\), let \(\Pi_n\) be the set of partitions of \(\{1,\ldots,n\}\).
+For \(\pi\in\Pi_n\), let
+\(\iota_\pi:\mathbb T^{|\pi|}\to\mathbb T^n\)
+assign one common coordinate to all indices in each block.
+The formulas below do not depend on the order of the blocks.
+Set
+\[
+p_\alpha(\pi)=
+\frac{\alpha^{|\pi|}\Gamma(\alpha)}{\Gamma(\alpha+n)}
+\prod_{B\in\pi}(|B|-1)!,
+\qquad
+m_{\alpha,n}=
+\sum_{\pi\in\Pi_n}p_\alpha(\pi)
+(\iota_\pi)_*\lambda^{\otimes|\pi|}.
+\]
+On smooth periodic functions, define
+\[
+\mathcal E_n(f,g)=
+\rho^2\sum_{\pi\in\Pi_n}p_\alpha(\pi)
+\int_{\mathbb T^{|\pi|}}
+\nabla(f\circ\iota_\pi)\cdot\nabla(g\circ\iota_\pi)
+\,d\lambda^{\otimes|\pi|}.
+\]
+Close this form in its form norm on \(L^2(m_{\alpha,n})\).
+Let \(P_t^{(n)}\) be the associated continuous-path Feller semigroup from the Le Jan–Raimond Brownian sticky-flow construction.
+These forms fix the target and its time scale.
+See Le Jan and Raimond, <a href="https://arxiv.org/abs/math/0211387">Sticky flows on the circle</a>, and Le Jan and Lemaire, <a href="https://arxiv.org/abs/math/0307106">Products of Beta matrices and sticky flows</a>.</p>
+<p>The Feller mass-process semigroup \(\mathsf P_t\) on \(\mathcal P(\mathbb T)\) is specified by
+\[
+F_f(\mu)=\int_{\mathbb T^n}f\,d\mu^{\otimes n},
+\qquad
+\mathsf P_tF_f(\mu)=
+\int_{\mathbb T^n}P_t^{(n)}f\,d\mu^{\otimes n},
+\qquad f\in C(\mathbb T^n),\quad n\ge1.
+\]
+Let \(Q_{\mu_0}\) be its continuous-path law with initial state \(\mu_0\).
+Equivalently, the corresponding random transition kernel \(K_{0,t}\) gives
+\[
+\mu_t(A)=\int_{\mathbb T}K_{0,t}(x,A)\,\mu_0(dx)
+\]
+for Borel sets \(A\subseteq\mathbb T\).
+The same random kernel flow acts on the entire initial measure.</p>
+<div class="theorem thm thm-plain" id="theorem-1"><p><strong>Theorem 1 (full mass path convergence).</strong>
+For every parameter sequence specified above, take any deterministic sequence \(\eta_N^0\in\Omega_N\).
+Assume only that, for some \(\mu_0\in\mathcal P(\mathbb T)\),
+\[
+\Phi_N(\eta_N^0)\longrightarrow\mu_0
+\quad\text{weakly in }\mathcal P(\mathbb T).
+\]
+Then
+\[
+\operatorname{Law}_{\eta_N^0}\bigl(\mu_N(\cdot)\bigr)
+\Longrightarrow Q_{\mu_0}
+\quad\text{in }D([0,\infty),\mathcal P(\mathbb T)).
+\]
+Here \(\mathcal P(\mathbb T)\) has its weak topology, and the path space has the Skorokhod \(J_1\) topology.
+Moreover,
+\[
+Q_{\mu_0}\bigl(C([0,\infty),\mathcal P(\mathbb T))\bigr)=1.
+\]</p>
+</div>
+<p>The limit \(\mu_0\) may be atomic, singular continuous, or absolutely continuous.
+There is no restriction on the number of initial occupied sites or their lattice separation.
+The conclusion also holds for random initial configurations if \(\mu_N(0)\) converges in law to the deterministic measure \(\mu_0\).
+No stationarity or absolute-continuity assumption on the microscopic initial law is required.</p>
+<h4 id="11-notation-and-proof-structure">1.1. Notation and proof structure</h4>
+<p>Sections 2–4 prove convergence of the auxiliary labelled processes and identify their limits.
+Section 5 proves Theorem 1 by sampling and uniform semigroup convergence.
+Appendices A–C prove the harmonic correction estimates, the sampling and occupation bounds, and the semigroup path-transfer theorem.
+Equation labels I–IV refer to Sections 2–5.</p>
+<p>For \(L\ge3\) and \(z\in\mathbb T_L^n\), set
+\[
+\eta_x(z)=\#\{i:z_i=x\},\qquad
+z^{i,\epsilon}=z+\epsilon e_i,\quad \epsilon\in\{-1,1\}.
+\]
+Addition is modulo \(L\). Define
+\[
+R_nF(z)=\sum_{i=1}^n\sum_{\epsilon=\pm1}
+[F(z^{i,\epsilon})-F(z)],
+\]
+\[
+I_nF(z)=\sum_{i=1}^n\sum_{\epsilon=\pm1}
+\eta_{z_i+\epsilon}(z)[F(z^{i,\epsilon})-F(z)].
+\]
+The same formulas on \(\mathbb Z^n\) define the line operators in Appendix A.
+A chamber-affine test is a continuous function on \(\mathbb R^n\) that is affine on each coordinate-order chamber.
+A common-cut chart lifts all circle coordinates into the same interval of length one.
+Thus it preserves coordinate equalities.</p>
+<p>Fix the parameter sequence in Theorem 1. Write
+\[
+L=L_N,\qquad d=d_N,\qquad q=N^2,\qquad
+\frac{q}{L^2}\longrightarrow\rho^2,\qquad
+\frac{qd}{L}\longrightarrow\alpha\rho^2,\qquad
+d\longrightarrow0.
+\]
+Every labelled order \(n\) below is fixed but arbitrary; \(q\) is always \(N^2\), never \(n^2\). The labelled chain is an auxiliary chain with the explicitly displayed generator. No selected subset of physical labels is asserted to be autonomous. All common-cut lifts preserve exact collisions.</p>
+<h3 id="2-circle-traces-and-tightness">2. Circle traces and tightness</h3>
+<h4 id="21-trace-process-and-tightness">2.1. Trace process and tightness</h4>
+<p>Fix an integer \(n\ge2\). On \(\mathbb T_L^n\), use the labelled operators \(R_n,I_n\) defined above. Let \(S\) be the tuples with no adjacent distinct occupied sites. For \(q&gt;0\) and \(0&lt;d\le d_n\), let \(Z\) have generator \(q(R_n+d^{-1}I_n)\). Write
+\[
+c_n=\frac{n(n-1)}4,\qquad r=2nc_nd\le\frac14.
+\]
+All circle distances below are geodesic distances, and the product metric is the maximum of the coordinate distances. Absorption means first entrance into \(S\), including time zero. An excursion includes its returning jump.</p>
+<p><strong>Proposition 2.1 (tightness).</strong> Under
+\[
+q=N^2,\qquad \frac{N}{L_N}\longrightarrow\rho,
+\qquad L_Nd_N\longrightarrow\alpha\in(0,\infty),
+\]
+the laws of \(X_N(t)=Z_t/L_N\) are C-tight in \(D([0,T],\mathbb T^n)\), for every fixed \(T\), uniformly over initial states and initial distributions.</p>
+<p><em>Proof.</em> We first estimate absorption times, the time removed by the trace, and the displacement during each removed excursion. We then compare the line and circle trace generators at the accelerated time scale. The stopping-time estimates in Section 2.5 complete the proof.</p>
+<p>Constants denoted by \(C_n\) or \(C_{n,p}\) may change between occurrences. They are uniform in positions and initial laws. Constants in the tightness argument may also depend on the limiting parameters, the fixed chart margin, and the indicated displacement threshold.</p>
+<h4 id="22-arbitrary-start-circle-absorption-and-excursion-marks">2.2. Arbitrary-start circle absorption and excursion marks</h4>
+<p>Let \(V(z)=\sum_x\eta_x(z)^2\). Summing the two directions of each undirected neighboring edge gives the exact identity
+\[
+I_nV(z)=4\sum_{\{x,y\}:\,x\sim y}\eta_x(z)\eta_y(z).
+\]
+Indeed, the jump from occupancies \((a,b)\) to \((a-1,b+1)\) changes \(V\) by \(2(b-a+1)\), and has inclusion rate \(ab\). The reverse direction contributes \(2(a-b+1)ab\). This convention also holds for \(L=3\), where the three undirected edges are distinct. Consequently \(I_nV\ge4\) off \(S\), while \(n\le V\le n^2\). Stopped Dynkin's formula and monotone convergence show that the pure-inclusion absorption time \(\tau_0\) satisfies
+\[
+\sup_{L\ge3}\sup_z\mathbb E_z\tau_0
+\le\frac{n^2-n}{4}=c_n.
+\]
+In particular absorption is almost sure, for every initial state and every \(L\ge3\).</p>
+<p>Run \(I_n+dR_n\) by superposing an independent clock of rate \(2nd\) on successive pure-inclusion pieces. From any state, the probability that this clock rings before pure-inclusion absorption is at most
+\[
+\mathbb E[1-\exp(-2nd\tau_0)]\le 2nd\mathbb E\tau_0\le r.
+\]
+Restart this argument after every independent event. Let \(J\) count all independent events before absorption, including one that causes absorption. Then, for arbitrary starting states,
+\[
+\mathbb P(J\ge j)\le r^j\quad(j\ge0),\qquad
+\mathbb E\tau_d\le\sum_{j\ge0}c_nr^j\le2c_n.
+\]
+The same statements apply after an initiating independent jump from \(S\); that initiating jump is excluded from \(J\). They include duration-zero excursions.</p>
+<p>The uniform mean estimate and the strong Markov property give
+\[
+\mathbb P_z(\tau_d&gt;4c_n k)\le2^{-k}\quad(k\ge0).
+\]
+Thus \(\sup_{L,z}\mathbb E_z\tau_d^p\le C_{n,p}\) for every real \(p\ge1\). Geometric summation also gives, for integers \(m\ge0\),
+\[
+\mathbb E[(1+J)^p\mathbf 1_{\{J\ge m\}}]
+\le C_{n,p}(m+1)^p r^m.
+\tag{I.2.1}
+\]
+For example, bound the expectation by \(\sum_{j\ge m}(j+1)^pr^j\), write \(j=m+k\), and use \((m+k+1)^p\le(m+1)^p(k+1)^p\) and \(r\le1/4\).</p>
+<p>There is also a deterministic displacement bound. Inclusion jumps never add a site to the occupied support. Each independent event adds at most one site to the set of sites ever occupied. Starting at an arbitrary tuple, this set has size at most \(n+J\); starting at a tuple in \(S\) and including one initiating jump, it has size at most \(n+1+J\). Each label's nearest-neighbor path lies in one connected component of this set. A proper connected subset of the circle is an arc whose length is its cardinality minus one. If the visited set is the entire circle, use the diameter bound \(L/2\) instead. In both cases, measured from the tuple before the initiating jump, or from an arbitrary initial tuple without one,
+\[
+\max_i\sup_{s\le\tau_d}
+\operatorname{dist}_L(Z_i(s),Z_i(0))\le n+J.
+\tag{I.2.2}
+\]
+In the initiating-jump formulation, \(Z(0)\) in (I.2.2) denotes the pre-jump tuple. The same visited-support argument on \(\mathbb Z\) bounds ordinary absolute displacement by \(n+J\). On the circle, (I.2.2) bounds geodesic displacement; it does not assert a bound on a winding lift.</p>
+<h4 id="23-lost-clock-time-and-maximum-deleted-displacement">2.3. Lost clock time and maximum deleted displacement</h4>
+<p>Return to the physical generator \(q(R_n+d^{-1}I_n)\). An excursion has physical duration \((d/q)\tau_d\), so its conditional expected duration, including from an arbitrary initial state, is at most \(2c_nd/q\). Put
+\[
+A(t)=\int_0^t\mathbf 1_{\{Z_s\in S\}}\,ds.
+\]
+Independent initiating events while in \(S\) have rate \(2nq\). Summing conditional expected excursion durations over their initiation times, and adding the initial absorption piece, gives
+\[
+\mathbb E[T-A(T)]\le\frac{2c_nd}{q}+4nc_ndT.
+\tag{I.3.1}
+\]
+This bound includes the complete duration of an excursion that ends after \(T\). Since \(A(t)\le t\), it gives
+\[
+\sup_{t\le T}|A(t)-t|=T-A(T)\longrightarrow0
+\quad\text{in probability}.
+\]</p>
+<p>Let \(D_T\) be the greatest rescaled diameter, in the product metric, of the initial absorption path or of any entire excursion initiated by physical time \(T\). Equations (I.2.1)–(I.2.2), the initiating-event compensator, and the strong Markov property imply, for \(\varepsilon L/2&gt;n\),
+\[
+\mathbb P(D_T&gt;\varepsilon)
+\le(1+2nqT)r^{\max\{0,\lfloor\varepsilon L/2-n\rfloor\}}.
+\tag{I.3.4}
+\]
+The harmless floor weakens the integer threshold. Consequently \(D_T\to0\) in probability: the prefactor is of order \(L^2\), whereas \(r\le1/4\) and the exponent is proportional to \(L\).</p>
+<p>Let \(\gamma(u)=\inf\{t:A(t)&gt;u\}\) and \(Y_u=Z_{\gamma(u)}\). The initial state of this trace is the first absorbed state if \(Z_0\notin S\). Its generator is \(q\mathcal T_d^L\), where
+\[
+\mathcal T_d^L b(z)=
+\sum_{i=1}^n\sum_{\epsilon\in\{-1,1\}}
+\mathbb E_{z+\epsilon e_i}
+[b(Z_{\tau_d})-b(z)],\qquad z\in S.
+\tag{I.3.5}
+\]
+The absorption in (I.3.5) is for \(I_n+dR_n\). Formula (I.3.5) follows by deleting the waiting times outside \(S\) from independent attempts of rate one in each direction; returning to the same state contributes zero. It is conservative and its off-diagonal total rate is at most \(2n\). All its absorption expectations exist because the circle state space is finite. Finite-state irreducibility for \(d&gt;0\) ensures that the inverse clock is defined for every finite \(u\).</p>
+<p>At a time inside a deleted excursion, \(Y_{A(t)}\) is its returning state. Therefore, with division by \(L\) understood coordinatewise,
+\[
+\sup_{t\le T}\operatorname{dist}(Z_t/L,Y_{A(t)}/L)\le D_T.
+\tag{I.3.6}
+\]
+This includes the initial absorption interval and an excursion returning after \(T\).</p>
+<h4 id="24-local-line-to-circle-agreement-with-the-rates-included">2.4. Local line-to-circle agreement with the rates included</h4>
+<p>Fix a cut \(a\in\mathbb T\). Lift each circle coordinate to its unique integer representative in \([aL,aL+L)\); call the resulting tuple \(\ell_a(z)\). For a continuum chamber-affine function \(f\) with Lipschitz constant \(D\), define its lattice-scale version \(f^{[L]}(u)=L f(u/L)\). This has the same Lipschitz bound. On the whole circle stable set put
+\[
+\widehat H_f^a(z)=H_{f^{[L]}}(\ell_a(z)),\qquad
+h_f^a(z)=L^{-1}\widehat H_f^a(z).
+\]
+Consequently \(h_f^a(z)-f(\ell_a(z)/L)\) is uniformly bounded by \(a_nD/L\), including when \(f\) has a nonzero constant term. In the comparisons in this subsection, the line symbols \(H_f\) and \(BH_f\) abbreviate \(H_{f^{[L]}}\) and \(BH_{f^{[L]}}\); Appendix A is applied to this function. Coordinates are unchanged by this convention.
+Here \(\ell_a(z)\in S_n\): circle stability excludes every possible line adjacency. These functions may jump across the cut, which is why the following estimate is localized.</p>
+<p>Suppose every lifted coordinate of \(z\) has distance at least \(h\) from both ends of the lift interval, with \(n+4\le h\le L/2\), and put
+\[
+x=\ell_a(z),\qquad m=\lfloor h-n-2\rfloor\ge1.
+\]
+Couple the circle and line initiating-step excursions using the same independent and inclusion events until a coordinate comes within one site of the cut. Before that event, their rates, stable sets, and integer positions agree. By the visited-support bound, reaching this region requires at least \(m\) independent excursion events. On the failure event, both complete excursion counts are at least \(m\); after failure use any continuation with the correct marginal laws. The line count has the bound of assertion (A-H6), and the circle count has (I.2.1).</p>
+<p>Circle corrected increments have absolute value at most \(C_nD(L+1)\), because the lift interval has length \(L\) and \(\|\psi_f\|_\infty\le a_nD\). Line corrected increments have absolute value at most \(C_nD(1+J)\). Multiplying these bounds by the failure indicators and using (I.2.1), then summing the \(2n\) initiating attempts, proves
+\[
+|\mathcal T_d^L\widehat H_f^a(z)-T_dH_f(x)|
+\le C_nDLr^m.
+\tag{I.4.1}
+\]
+For coordinates \(f_i(x)=x_i\), define the circle unscaled corrected covariance \(\widehat\Gamma_{d,L,a}^{ij}\) by the jump-rate sum for \(\mathcal T_d^L\) with increments of \(\widehat H_i^a,\widehat H_j^a\). Products of circle increments are bounded by \(C_nL^2\); products of line increments are bounded by \(C_n(1+J)^2\). The same argument proves
+\[
+|\widehat\Gamma_{d,L,a}^{ij}(z)-\Gamma_d^{ij}(x)|
+\le C_nL^2r^m.
+\tag{I.4.2}
+\]
+Thus these are rate-weighted estimates, not merely a statement that the two return distributions agree with high probability. In particular assertion (A-H5), assertion (A-H4), and (I.4.1)–(I.4.2) give
+\[
+\left|q\mathcal T_d^Lh_f^a(z)-\frac{qd}{L}BH_f(x)\right|
+\le C_nD\left(\frac{qd^2}{L}+qr^m\right),
+\tag{I.4.3}
+\]
+\[
+\left|\frac q{L^2}\widehat\Gamma_{d,L,a}^{ij}(z)
+-\frac q{L^2}\Gamma_d^{ij}(x)\right|\le C_nqr^m.
+\tag{I.4.4}
+\]
+One may replace \(\Gamma_d\) by \(\Gamma_0\) in (I.4.4) at the additional cost \(C_nqd/L^2\). For every \(p\ge1\), assertion (A-H6) and the same coupling also give the local scaled jump-moment estimate
+\[
+q\sum_y\mathcal T_d^L(z,y)
+|h_f^a(y)-h_f^a(z)|^p
+\le C_{n,p}D^p\left(\frac q{L^p}+qr^m\right).
+\tag{I.4.5}
+\]
+Diagonal terms in these sums are zero. No bound depending on the additive constant of \(f\) has been used.</p>
+<p>For a fixed positive macroscopic margin \(b\), take \(h=bL\). Then \(m\) grows linearly in \(L\), and
+\[
+qr^m\longrightarrow0,\qquad
+\frac{qd^2}{L}\longrightarrow0,\qquad
+\frac{qd}{L}=O(1),\qquad\frac q{L^2}=O(1).
+\]
+This verifies explicitly that the circle-to-line errors vanish after the acceleration. In particular the local drift of each \(h_i^a\) and its local bracket density are uniformly bounded.</p>
+<h4 id="25-nested-charts-and-stopping-time-c-tightness">2.5. Nested charts and stopping-time C-tightness</h4>
+<p>Take \(b=1/(16n)\) and the \(4n\) cuts \(a_j=j/(4n)\). Define
+\[
+U_j=\{x:\min_i\operatorname{dist}_{\mathbb T}(x_i,a_j)&gt;2b\},
+\qquad
+V_j=\{x:\min_i\operatorname{dist}_{\mathbb T}(x_i,a_j)&gt;b\}.
+\]
+The \(U_j\) cover \(\mathbb T^n\): for each coordinate, the closed forbidden interval of radius \(2b\) has length \(1/(4n)\), hence contains at most two of the cuts. At most \(2n&lt;4n\) cuts are forbidden. Also \(\overline U_j\subset V_j\).</p>
+<p>Start the rescaled trace \(\overline Y=Y/L\) at any state in \(U_j\), and stop at its first exit \(\zeta\) from \(V_j\). For all sufficiently large \(N\), (I.4.3)–(I.4.4) apply at every pre-exit state with margin \(bL\). For each coordinate there is a martingale decomposition
+\[
+h_i^{a_j}(Y_{t\wedge\zeta})-h_i^{a_j}(Y_0)
+=M_i(t)+\int_0^{t\wedge\zeta}\beta_i(Y_s)\,ds,
+\]
+with \(|\beta_i|\le C\) and predictable bracket \(\langle M_i\rangle_t\le Ct\). Here \(\zeta\) uses the physical trace time, and \(h_i^{a_j}\) is defined at the exit state as well. The finite-state martingale formula therefore includes an overshooting exit jump. Doob's inequality gives
+\[
+\mathbb E\sup_{s\le\delta}
+|h_i^{a_j}(Y_{s\wedge\zeta})-h_i^{a_j}(Y_0)|^2
+\le C(\delta+\delta^2).
+\tag{I.5.1}
+\]
+The same estimate holds conditionally after a trace stopping time, selecting the first eligible cut measurably from its current state.</p>
+<p>For every circle state, the coordinate correction is at most \(a_n/L\). The circle distance between two coordinates is consequently at most their corrected-lift difference plus \(2a_n/L\). An exit from \(V_j\), starting in \(U_j\), requires displacement at least \(b\) in one coordinate. Thus (I.5.1), summed over coordinates, implies, for each fixed \(\varepsilon&gt;0\) and all sufficiently large \(N\),
+\[
+\sup_y\mathbb P_y\left(
+\sup_{u\le\delta}\operatorname{dist}(\overline Y_u,\overline Y_0)
+&gt;\varepsilon\right)
+\le C_{n,\varepsilon}(\delta+\delta^2).
+\tag{I.5.2}
+\]
+To see the exit step explicitly, bound the exit probability using threshold \(b-2a_n/L\), and the stopped displacement probability using threshold \(\varepsilon-2a_n/L\). Both thresholds are positive for large \(N\). This justifies (I.5.2) without requiring a single chart to cover an entire path.</p>
+<p>The trace also has vanishing maximum jumps. The excursion mark bound gives a uniform \(p\)-th moment for unscaled geodesic trace displacement, so, for every \(p&gt;2\),
+\[
+\mathbb P\left(\sup_{u\le T}
+\operatorname{dist}(\overline Y_u,\overline Y_{u-})&gt;\varepsilon\right)
+\le\frac{C_{n,p}qT}{\varepsilon^pL^p}\longrightarrow0.
+\tag{I.5.3}
+\]
+The event-rate bound \(2nq\) justifies this compensator estimate; it does not presuppose a deterministic number of excursions.</p>
+<p>The trace strong Markov property applies (I.5.2) after each bounded trace stopping time. Compactness gives compact containment. Aldous' criterion therefore gives tightness of the trace. Equation (I.5.3) makes every limit continuous: under \(J_1\) convergence, time changes give uniform approximation, and a limit jump cannot exceed the largest approximating jump plus twice the uniform error.</p>
+<p>It remains to transfer tightness to the untraced chain. For a path \(y\), put
+\[
+w_T(y,\delta)=\sup_{\substack{s,t\le T\\|s-t|\le\delta}}
+\operatorname{dist}(y(s),y(t)).
+\]
+C-tightness of \(\overline Y_N=Y/L\) implies
+\[
+\lim_{\delta\downarrow0}\limsup_N
+\mathbb P\bigl(w_T(\overline Y_N,\delta)&gt;\varepsilon\bigr)=0.
+\tag{I.5.4}
+\]
+Indeed, each subsequence has a further subsequence represented with almost sure \(J_1\) convergence to a continuous path. That convergence is uniform, and the limiting path is uniformly continuous on \([0,T]\).</p>
+<p>By (I.3.6),
+\[
+\sup_{t\le T}\operatorname{dist}(X_N(t),\overline Y_N(t))
+\le D_T+w_T(\overline Y_N,\|A-\operatorname{id}\|_\infty)
+\longrightarrow0
+\quad\text{in probability}.
+\tag{I.5.5}
+\]
+For the last limit, first bound the clock error by a fixed \(\delta\), use (I.5.4), then let \(\delta\downarrow0\). Equations (I.3.1) and (I.3.4) control the clock and excursion errors. Uniform path closeness implies \(J_1\) closeness. Thus \(X_N\) is C-tight and has the same limits as its trace. No stopping-time property of \(A(\tau)\) in a trace filtration is used.</p>
+<p>For \(n=1\), \(S=\mathbb T_L\), the clock and excursion errors vanish, and the coordinate lift has zero drift and local bracket density \(2q/L^2\) away from a cut. The same nested-chart argument proves the result, with no absorption or correction estimates needed.</p>
+<h3 id="3-collision-terms-and-microscopic-convergence">3. Collision terms and microscopic convergence</h3>
+<p><strong>Proposition 3.1 (microscopic path convergence).</strong> Fix \(n\ge1\). Let \(Z_N\) have generator \(N^2(R_n+d_N^{-1}I_n)\) on \(\mathbb T_{L_N}^n\). Under the parameter assumptions of Theorem 1, for every deterministic sequence \(z_N/L_N\to x\in\mathbb T^n\), the laws of \(Z_N/L_N\) started at \(z_N\) converge in \(D([0,\infty),\mathbb T^n)\) to the continuous \(n\)-point law with semigroup \(P_t^{(n)}\). The path topology is Skorokhod \(J_1\).</p>
+<p><em>Proof.</em> Proposition 2.1 gives tightness. We identify the collision drift and covariance of each limit. Section 4 proves uniqueness for the resulting local martingale problem.</p>
+<h4 id="31-positive-layers-in-trace-time">3.1. Positive layers in trace time</h4>
+<p>Let \(\overline Y_N(u)=Y_u/L\) be the physical-time trace from Section 2. It may start from any distribution on the stable set. Write \(M_n=\binom n2\) and, for \(0&lt;\varepsilon&lt;1/4\), take \(k_N=\lfloor\varepsilon L\rfloor\); eventually \(1\le k_N&lt;L/2\). Denote by \(B_{k_N}\) the positive-layer pair count in Appendix B. To estimate a trace started from a stable state, construct an untraced chain from that same state, with clock \(A\). The exact change of variables in retained time and \(0\le B_{k_N}\le M_n\) give
+\[
+\int_0^T B_{k_N}(Y_u)\,du
+\le \int_0^{T+1}B_{k_N}(Z_s)\,ds
+ +M_nT\,\mathbf1_{\{A(T+1)&lt;T\}}.
+\]
+Indeed, on the complementary event the first integral is the retained part up to the inverse-clock time, which is at most \(T+1\); on the event itself its bound is \(M_nT\). Appendix B with deterministic horizon \(T+1\), and (I.3.1) with Markov's inequality, imply
+\[
+\begin{aligned}
+\sup_y\mathbb E_y\int_0^T B_{k_N}(Y_u)\,du
+\le{}&amp;M_n\left[
+\frac{2k_N(T+1)}{L+1/d}+\frac{Lk_N}{q}\right]\\
+&amp;+M_nT\left[\frac{2c_nd}{q}+4nc_nd(T+1)\right].
+\end{aligned}
+\tag{II.1}
+\]
+Thus, for each finite \(T\), there is a finite \(C_{n,T}\), independent of starting states and \(N\) sufficiently large, such that
+\[
+\sup_y\mathbb E_y\int_0^T B_{k_N}(Y_u)\,du
+\le C_{n,T}(\varepsilon+d).
+\tag{II.2}
+\]
+The same bound holds for initial distributions by averaging. For \(n=1\), all layer terms are zero. The estimate is about positive separations only: it does not make time on equality strata small.</p>
+<h4 id="32-corrected-drifts-and-brackets-at-every-order">3.2. Corrected drifts and brackets at every order</h4>
+<p>Fix a common-cut chart and a compact subset of that chart, so its lattice lifts have a fixed positive margin \(bL\) from the cut. For a chamber-affine \(f\), use \(h_f^a\) from Section 2 and define its trace drift
+\[
+\beta_{N,f}(z)=q\mathcal T_d^Lh_f^a(z).
+\]
+For the exact equality partition \(\pi(x)\), define on the chart
+\[
+b_f(x)=\alpha\rho^2
+\sum_{B\in\pi(x)}
+\sum_{\varnothing\ne A\subsetneq B}
+\frac{(|A|-1)!(|B\setminus A|-1)!}{(|B|-1)!}
+\,\partial_{-e_A+e_{B\setminus A}}f(\ell_a(x)).
+\tag{II.3}
+\]
+Here \(\ell_a(x)\) denotes the real chart lift of the rescaled circle tuple, and \(e_A=\sum_{i\in A}e_i\). It is the same lift convention as \(\ell_a(z)/L\) on lattice tuples. Both the directional derivatives and \(b_f\) are constant on each weak-order cell. There are finitely many such cells, so \(|b_f|\le C_nD\).</p>
+<p>If \(B_{k_N}(z)=0\), all distinct occupied sites have lattice separation greater than \(\varepsilon L\), also in the line lift. Use assertion (A-H3) with \(R_*=\varepsilon L/16\), which is at least \(16\) eventually. In the one-block case its exact formula applies. Since
+\[
+\partial_v f^{[L]}(\ell_a(z))
+=\partial_v f(\ell_a(z)/L),
+\]
+(I.4.3) and the scaling show, uniformly over these states,
+\[
+|\beta_{N,f}(z)-b_f(z/L)|\le D e_N(\varepsilon),
+\qquad e_N(\varepsilon)\longrightarrow0
+\quad\hbox{for each fixed }\varepsilon&gt;0.
+\tag{II.4}
+\]
+For clarity, the errors here are bounded by a constant times
+\[
+\omega_n(\varepsilon L/16)
++\left|\frac{qd}{L}-\alpha\rho^2\right|
++\frac{qd^2}{L}+q r^{\lfloor bL-n-2\rfloor}.
+\]
+On every pre-exit state, including the layer, \(|\beta_{N,f}|+|b_f|\le C_nD\), by assertions (A-H2) and (A-H5), and (I.4.3).</p>
+<p>Let \(c_N^{ij}\) be the physical trace covariance density for \(h_i^a,h_j^a\):
+\[
+c_N^{ij}(z)=\frac q{L^2}\widehat\Gamma_{d,L,a}^{ij}(z).
+\]
+Assertion (A-H4) and (I.4.4) similarly give a uniform bound \(|c_N^{ij}|\le C_n\), and off the positive layer
+\[
+\left|c_N^{ij}(z)-2\rho^2\mathbf1_{\{z_i=z_j\}}\right|
+\le e_N&#x27;(\varepsilon)\longrightarrow0.
+\tag{II.5}
+\]
+Its error is bounded by a constant times
+\[
+\omega_n(\varepsilon L/16)+d+
+\left|\frac q{L^2}-\rho^2\right|
++q r^{\lfloor bL-n-2\rfloor}.
+\]
+For coordinate tests the oriented sum (II.3) vanishes: \(A\) and \(B\setminus A\) have equal coefficients and opposite derivatives. Therefore \(b_i=0\).</p>
+<p>Let \(\zeta_N\) be any stopping time before exit from this compact chart region. The absolute errors are bounded by the off-layer bounds plus \(C_n(D+1)B_{k_N}\). Equation (II.2) gives
+\[
+\begin{aligned}
+\mathbb E\int_0^{T\wedge\zeta_N}
+|\beta_{N,f}(Y_u)-b_f(\overline Y_N(u))|\,du&amp;\longrightarrow0,\\
+\mathbb E\int_0^{T\wedge\zeta_N}
+|c_N^{ij}(Y_u)-2\rho^2\mathbf1_{\{Y_i(u)=Y_j(u)\}}|\,du&amp;\longrightarrow0.
+\end{aligned}
+\tag{II.6}
+\]
+Indeed the limsup for fixed \(\varepsilon\) is at most \(C_{n,T}(D+1)\varepsilon\); then let \(\varepsilon\downarrow0\). Restricting an absolute integral to a later starting time or multiplying its integrand by a bounded predictable variable preserves the assertion. All statements are uniform in initial distributions. No exchange between a fixed label order and \(N\) is made.</p>
+<h4 id="33-passing-discontinuous-equality-and-weak-order-cells">3.3. Passing discontinuous equality and weak-order cells</h4>
+<p>Consider a convergent subsequence of trace paths. Section 2 makes its limit \(X\) continuous. By the Skorokhod representation theorem we may arrange
+\[
+\sup_{u\le T}\operatorname{dist}(\overline Y_N(u),X(u))
+\longrightarrow0
+\quad\hbox{almost surely}
+\]
+for each integer \(T\). The trace layers retain their expectation bounds under this coupling, since those bounds depend only on individual path laws.</p>
+<p>For a fixed pair \(i,j\), put
+\[
+a_N(u)=\mathbf1_{\{Y_i(u)=Y_j(u)\}},
+\qquad a(u)=\mathbf1_{\{X_i(u)=X_j(u)\}}.
+\]
+At every time with \(a(u)=0\), the positive limiting separation makes \(a_N(u)=0\) eventually. Dominated convergence on the product of probability and time therefore gives
+\[
+\mathbb E\int_0^T a_N(u)(1-a(u))\,du\longrightarrow0.
+\]
+For the other mismatch, fix \(\varepsilon&gt;0\). On the event that the uniform coordinate error is at most \(\varepsilon/4\), if \(a=1\) and \(a_N=0\), the discrete positive distance is at most \(\varepsilon L/2\), hence at most \(\lfloor\varepsilon L\rfloor\) for large \(N\). The exceptional event has probability tending to zero. Equation (II.2) consequently yields
+\[
+\limsup_N\mathbb E\int_0^T(1-a_N(u))a(u)\,du
+\le C_{n,T}\varepsilon.
+\]
+Letting \(\varepsilon\downarrow0\) proves
+\[
+\mathbb E\int_0^T|a_N(u)-a(u)|\,du\longrightarrow0.
+\tag{II.7}
+\]</p>
+<p>Work now before exits from a relatively compact common-cut region. If two limiting lifted coordinates are unequal at a time, their strict order is eventually the same in the approximations. If they are equal, an order-cell discrepancy can occur only if their equality indicators differ. A union bound over the finitely many pairs, (II.7), and dominated convergence for the unequal pairs prove convergence in expected time integral of the weak-order-cell indicators. Thus every bounded function constant on these cells, in particular (II.3), satisfies
+\[
+\mathbb E\int_0^{T\wedge\zeta_N\wedge\zeta}
+|b_f(\overline Y_N(u))-b_f(X(u))|\,du\longrightarrow0
+\tag{II.8}
+\]
+whenever the two paths there lie in the common compact chart region. If \(\zeta_N\wedge T\to\zeta\wedge T\), boundedness also removes the difference of the integration endpoints. These conclusions include the complete equality partition and all collision multiplicities; pairwise stickiness alone is not the identification being used.</p>
+<h4 id="34-local-martingale-passage-including-stopping-times">3.4. Local martingale passage, including stopping times</h4>
+<p>Here are the localization details used to pass the finite-chain martingales. On a relatively compact chart region, \(h_f^a\) converges uniformly to the chart function \(f\). It is bounded on the entire circle stable set for fixed \(f\), uniformly in \(N\): the lift lies in a bounded cube and its correction is at most \(a_nD/L\). Its drift is bounded before exit. Therefore the stopped Dynkin martingales and their increments are uniformly integrable. For products of corrected coordinates the finite-chain generator identity is
+\[
+q\mathcal T_d^L(h_i^ah_j^a)
+=h_i^a\beta_{N,j}+h_j^a\beta_{N,i}+c_N^{ij}.
+\tag{II.9}
+\]
+The right side is also uniformly bounded before chart exit, so its stopped martingales have the same integrability property. No fourth-moment assertion for a product of unbounded lifts is needed.</p>
+<p>We justify the choice and passage of exits without an unproved continuity assumption about hitting times. Fix a deterministic time \(s\), a chart point \(c\), and a radius \(r\) whose closed ball lies inside the chart. Put
+\[
+\sigma_s(r)=\inf\{u\ge s:\operatorname{dist}(X(u),c)\ge r\},
+\]
+including \(s\) if \(X(s)\) is already outside. Define \(\sigma_{N,s}(r)\) similarly. For uniformly convergent paths and every \(\delta&gt;0\), the exit times at radii \(r-\delta,r+\delta\) bound the liminf and limsup of the approximating exit times at \(r\). The map \(r\mapsto \sigma_s(r)\wedge T\) is monotone, and hence has at most countably many discontinuities for each path. At every continuity radius its left and right bounding values agree. Fubini's theorem shows that for Lebesgue-almost every radius the exits converge almost surely after truncation at each integer \(T\). Also avoid radii satisfying \(\mathbb P(\operatorname{dist}(X(s),c)=r)&gt;0\); there are at most countably many. Choose radii avoiding these exceptional sets simultaneously for every rational \(s\) and integer \(T\). A countable dense set of centers and a dense selection of permitted radii gives a deterministic basis of relatively compact chart balls.</p>
+<p>For any such ball, stop the finite-chain martingales beginning at rational \(s\) at \(\sigma_{N,s}(r)\). On the event the initial state is outside the ball their increment is zero. On its complementary event, all pre-exit points and the limiting exit point lie in a compact subset of the chart. The possible microscopic overshoot is included in the generator and terminal value; its size tends to zero by Section 2. The exit-time convergence, (II.6)–(II.8), and boundedness pass both the Dynkin identity and the product identity to the limit. To check the martingale property rather than just its mean, multiply an increment between \(u\) and \(t\) by any bounded continuous cylinder of the path up to \(u\). Uniform path convergence and the same integral convergence pass this identity. Such cylinders generate the path sigma field, so the monotone-class theorem gives the conditional martingale identity. Rational \(u,t\), followed by continuity of the martingale and its bounded integral term, suffice for all times.</p>
+<p>For precision, identities obtained this way at rational entry times extend to arbitrary entry stopping times inside a smaller ball. Let \(\theta\) be a bounded stopping time at which \(X(\theta)\) belongs to a ball with closure inside one of the preceding balls, and approximate \(\theta\) from above by dyadic stopping times \(\theta_m\). The rational-entry identities, partitioned over the finitely many values of each \(\theta_m\), hold conditionally on the past. By continuity and the positive margin, \(\theta_m\) precedes exit from the smaller ball for all sufficiently large \(m\) on each path. Stop those martingales additionally at this smaller-ball exit. Optional sampling applies because their values and drift integrals are bounded on fixed horizons. Letting \(m\to\infty\) passes the entry value and integral by continuity and bounded convergence and yields the identity starting at \(\theta\). Localization removes a bound on \(\theta\).</p>
+<p>Finally, choose finitely many triples of chart balls \(V_j,W_j,B_j\) such that \(\overline V_j\subset W_j\), \(\overline W_j\subset B_j\), and the \(V_j\) cover the compact set under consideration. Choose the outer balls \(B_j\) from the good-radius basis. The preceding entry-time argument gives the stopped identities up to exit from \(W_j\). At each entry select the first \(j\) with the entry point in \(V_j\), then run until exit from \(W_j\). Each exit requires displacement at least \(\min_j\operatorname{dist}(\overline V_j,W_j^c)&gt;0\). Continuity prevents these exits from accumulating in finite time. Concatenation gives the identities up to exit from the compact chart region, without a Markov assumption on the limit.</p>
+<p>It follows that every trace limit has, in every common-cut chart, continuous coordinate local martingales \(Z_i\), and
+\[
+\langle Z_i,Z_j\rangle_{t\wedge\zeta}
+=2\rho^2\int_0^{t\wedge\zeta}
+\mathbf1_{\{Z_i(u)=Z_j(u)\}}\,du.
+\tag{II.10}
+\]
+Indeed (II.6) makes each coordinate drift integral tend to zero. Equation (II.9), bounded corrected coordinates, and (II.6)–(II.8) make
+\(Z_iZ_j-2\rho^2\int\mathbf1_{\{Z_i=Z_j\}}\)
+a local martingale. The product characterization of quadratic covariation then gives (II.10). For every chamber-affine \(f\),
+\[
+f(Z_{t\wedge\zeta})-f(Z_0)
+-\int_0^{t\wedge\zeta}b_f(X(u))\,du
+\quad\hbox{is a martingale.}
+\tag{II.11}
+\]
+The chamber-affine space is finite dimensional, because its finitely many affine pieces determine the function. Applying the argument to a basis and using linearity gives a common full-measure set for all its functions. These are all the tests needed below.</p>
+<h4 id="35-identification-of-every-full-untraced-point-start-limit">3.5. Identification of every full untraced point-start limit</h4>
+<p>Section 4 proves internally that (II.10)–(II.11) determine exactly the \(n\)-point law in Theorem 1, from every point, on the circle. Thus every trace subsequential limit is that target law.</p>
+<p>This also identifies the full chain, for arbitrary starts. Let \(z_N\in\mathbb T_{L_N}^n\) be any sequence with \(z_N/L_N\to x\). The trace starts at the first absorbed state if necessary. The arbitrary-start bound (I.2.2) shows that its initial rescaled position differs from \(z_N/L_N\) by a quantity tending to zero in probability. Section 2 gives tightness of the trace and the original paths, a clock uniformly approaching the identity, and deleted-excursion error tending to zero. Explicitly, C-tightness of the trace gives a modulus of continuity in probability, so (I.3.6) implies
+\[
+\sup_{t\le T}\operatorname{dist}(Z_t/L_N,Y_t/L_N)
+\le D_T+
+\sup_{\substack{u,v\le T\\ |u-v|\le\sup_{s\le T}|A(s)-s|}}
+\operatorname{dist}(Y_u/L_N,Y_v/L_N)
+\longrightarrow0
+\]
+in probability. Here \(A(t)\le t\), and C-tightness makes the displayed modulus valid despite the small trace jumps. Therefore original and trace subsequential limits coincide. Compactness and the unique identification imply
+\[
+\operatorname{Law}_{z_N}(Z_\cdot/L_N)
+\Longrightarrow P_x^{(n)}
+\quad\hbox{in }D([0,\infty),\mathbb T^n),
+\tag{II.12}
+\]
+where \(P_x^{(n)}\) is the continuous target \(n\)-point path law. If convergence failed, tightness would supply a subsequence with a further limit contradicting the identification. The same argument applies on every integer horizon and hence on the full path space. For \(n=1\), the zero drift and bracket \(2q/L^2\) in Section 2 give the Brownian case directly. At no order was the initial tuple required to be stable, separated, stationary, or sampled from a reference law.</p>
+<h3 id="4-identification-of-the-continuum-target">4. Identification of the continuum target</h3>
+<h4 id="41-local-martingale-characterization">4.1. Local martingale characterization</h4>
+<p>Fix \(n\geq 1\), \(\alpha&gt;0\), and \(\rho&gt;0\). Write \(m=m_{\alpha,n}\), \(p(\pi)=p_\alpha(\pi)\), and \(\mathcal E=\mathcal E_n\) for the exact measure and closed form in the statement. For a circle configuration \(x\), write \(\pi(x)\) for its exact equality partition. For a block \(B\), put
+\[
+e_B=\sum_{i\in B}e_i,
+\qquad D_B=e_B\cdot\nabla.
+\]
+For \(\varnothing\ne A\subsetneq B\), put \(C=B\setminus A\) and
+\[
+v_{A,C}=-e_A+e_C,
+\qquad
+r(A,C)=\frac{(|A|-1)!(|C|-1)!}{(|B|-1)!}.
+\]
+Directional derivatives at a collision are one-sided derivatives along the displayed vector. Let \(\mathcal H_n\) be the continuous real functions on \(\mathbb R^n\) that are linear on each chamber of the weak coordinate-order decomposition, as in Howitt–Warren's space \(L_n\). Constants may be added without changing any assertion.</p>
+<p><strong>Proposition 4.1 (characterization of the sticky motion).</strong> Choose a common-cut chart \(U=(\mathbb T\setminus\{q\})^n\), with lift \(z:U\longrightarrow I^n\), where \(I\) is an open interval of length one. Choose an open \(W\) with \(\overline W\subset U\), and let \(\tau\) be its first exit time. For the target started at any deterministic \(x\in W\), set \(Z_t=z(X_t)\) up to \(\tau\). Then the stopped coordinates are continuous local martingales and
+\[
+\langle Z_i,Z_j\rangle_{t\wedge\tau}
+=2\rho^2\int_0^{t\wedge\tau}
+\mathbf 1_{\{Z_i(s)=Z_j(s)\}}\,ds.
+\tag{III.1}
+\]
+For every \(h\in\mathcal H_n\),
+\[
+h(Z_{t\wedge\tau})-h(Z_0)
+-\int_0^{t\wedge\tau}\mathcal B h(Z_s)\,ds
+\tag{III.2}
+\]
+is a martingale, where
+\[
+\mathcal B h(z)
+=\alpha\rho^2
+\sum_{B\in\pi(z)}
+\sum_{\varnothing\ne A\subsetneq B}
+r(A,B\setminus A)D_{v_{A,B\setminus A}}h(z).
+\tag{III.3}
+\]
+The inner sum is oriented: both \(A\) and \(B\setminus A\) occur. These local identities determine the continuous circle path law uniquely, including starts on arbitrary collision strata.</p>
+<p><em>Proof.</em> We first identify the partition forms with the continuum construction. We then derive the local martingale identities and prove uniqueness.</p>
+<p>The target is indeed the Brownian specialization of Le Jan–Raimond's construction. Their parameter is \(\tau_0=1/(1+\alpha)\): the predictive probabilities in their Section 2 become \(\alpha/(\alpha+n)\) for a new block and \(|B|/(\alpha+n)\) for joining block \(B\). Starting from the unique partition of one label, these recurrences give precisely the displayed \(p_\alpha\) in the statement. Their equation (3.6), with one-point generator \(\rho^2\partial_{xx}\), gives precisely \(\mathcal E\). Their smooth form core agrees with the closure specified in the statement. Theorem 3.3 supplies compatible strong Feller semigroups. Compatibility with the one-point Brownian motion gives continuous coordinate paths, hence continuous joint paths, for every starting point. <a href="https://arxiv.org/pdf/math/0211387v1">Le Jan–Raimond, Sections 2–3 and Theorem 3.3</a>.</p>
+<h4 id="42-cutoff-chamber-linear-functions-belong-to-the-closed-form-domain">4.2. Cutoff chamber-linear functions belong to the closed form domain</h4>
+<p>Let \(\chi\) be a smooth function compactly supported in \(U\), and extend
+\[
+f(x)=\chi(x)h(z(x))
+\]
+by zero outside \(U\). The function \(f\) is globally Lipschitz on the torus and is smooth on the closures of its finitely many local chambers. Let \(f_\varepsilon\) be its convolution with a smooth periodic approximate identity in the ambient \(n\) coordinates.</p>
+<p>Here ambient mollification must be checked on every lower-dimensional summand of the form. Fix \(\pi\) and a point of its exact stratum. In a sufficiently small neighborhood, the only collision hyperplanes through that point are those internal to blocks of \(\pi\). The affine pieces of \(h\) in all neighboring chambers agree on the local subspace where the coordinates within each block are equal. Therefore their derivatives along each \(e_B\), \(B\in\pi\), agree with the derivative of that trace. Multiplying by the smooth \(\chi\) preserves the corresponding limiting statement. Differentiating convolution along \(e_B\) consequently gives
+\[
+D_B f_\varepsilon(x)\longrightarrow
+\partial_{y_B}(f\circ\iota_\pi)(y),
+\qquad x=\iota_\pi(y),
+\]
+for Lebesgue-almost every block-coordinate vector \(y\). The excluded additional coincidences have zero Lebesgue measure in those block coordinates. All these derivatives are uniformly bounded by a fixed multiple of the Lipschitz constant of \(f\). Dominated convergence, applied to the finitely many \(\pi\), gives convergence of these tangential gradients in every summand of the form. Also \(f_\varepsilon\to f\) uniformly. Thus \(f_\varepsilon\) is Cauchy in the form norm, \(f\) belongs to the specified closed form domain, and its form derivatives are exactly the trace derivatives just described.</p>
+<p>This argument also applies to a smooth cutoff times any smooth polynomial in the chart coordinates. For such a polynomial the extended cutoff function is already smooth globally.</p>
+<h4 id="43-integration-by-parts-and-the-oriented-coefficient">4.3. Integration by parts and the oriented coefficient</h4>
+<p>On the exact stratum of \(\pi\), define the bounded Borel function
+\[
+b_f(x)=\rho^2\sum_{B\in\pi}D_B^2 f(x)
++\alpha\rho^2\sum_{B\in\pi}
+\sum_{\varnothing\ne A\subsetneq B}
+r(A,B\setminus A)D_{v_{A,B\setminus A}}f(x).
+\tag{III.4}
+\]
+The second derivative here is taken along the smooth restriction to that stratum; the first derivative in each splitting direction is taken from the adjacent chamber. These derivatives exist. The cutoff, the finite chamber decomposition, and the finite number of partitions make \(b_f\) bounded. Outside the cutoff's chart neighborhood they vanish.</p>
+<p>To verify (III.4), integrate each summand of \(\mathcal E(f,g)\), for smooth \(g\), by parts in its own block coordinates, subdividing into strict-order chambers. Interior terms give minus the first term of (III.4). A face with exactly two block coordinates equal belongs to a partition obtained by merging those blocks; intersections of multiple faces have zero surface measure and create no additional term.</p>
+<p>More explicitly, suppose \(\sigma\) refines \(\pi\) by replacing \(B\) with the unordered pair \(\{A,C\}\). On the side \(y_A&lt;y_C\), the outward unit normal is \((e_A-e_C)/\sqrt 2\) in the two independent block coordinates. Its flux is
+\[
+-\frac{1}{\sqrt 2}D_{v_{A,C}}f.
+\]
+Parameterizing the face by the common coordinate \(y_A=y_C=u\) multiplies surface measure by \(\sqrt 2\). The contribution to \(\mathcal E(f,g)\) is therefore
+\[
+-\rho^2 p(\sigma)\int D_{v_{A,C}}f\,g\,d\lambda_\pi.
+\]
+The opposite side gives the same expression with \(A,C\) reversed. These are two sides of one refined stratum, each counted once. The metric here is the metric of the independent block coordinates in the stated form; there is no block-size factor from the ambient embedding into \(\mathbb T^n\). Finally,
+\[
+\frac{p(\sigma)}{p(\pi)}
+=\alpha\frac{(|A|-1)!(|C|-1)!}{(|B|-1)!}
+=\alpha r(A,C).
+\tag{III.5}
+\]
+Summing the interiors and faces, with no outer boundary term because of the cutoff, proves
+\[
+\mathcal E(f,g)=-\int b_f g\,dm
+\tag{III.6}
+\]
+for every smooth \(g\). Form-core density extends (III.6) to all form-domain \(g\). Since \(b_f\in L^2(m)\), the definition of the operator associated with the closed symmetric form yields
+\[
+f\in D(L),\qquad Lf=b_f\quad\text{in }L^2(m).
+\tag{III.7}
+\]
+For \(f=\chi h\), the terms involving \(hD_v\chi\) in the splitting sum cancel between the two orientations. On a neighborhood where \(\chi=1\), the tangential second derivatives of \(h\) vanish and (III.4) reduces exactly to (III.3).</p>
+<h4 id="44-from-the-operator-identity-to-every-deterministic-starting-point">4.4. From the operator identity to every deterministic starting point</h4>
+<p>The measure \(m\) has full support: its all-singleton summand has a strictly positive coefficient multiplying \(n\)-dimensional Haar measure. Let \(P_t\) be the everywhere-defined strong Feller version from Le Jan–Raimond. For the bounded continuous \(f\) above, (III.7) gives the semigroup identity in \(L^2(m)\)
+\[
+P_t f-f=\int_0^t P_s b_f\,ds.
+\tag{III.8}
+\]
+For every \(s&gt;0\), \(P_s b_f\) is continuous and bounded by \(\|b_f\|_\infty\). Dominated convergence in \(s\) shows that the right side of (III.8), evaluated using the strong Feller version, is continuous in the starting point. The left side is continuous as well. Since two continuous functions equal \(m\)-almost everywhere are equal everywhere when \(m\) has full support, (III.8) holds at every starting point.</p>
+<p>For completeness, choosing bounded Borel representatives causes no exceptional-point ambiguity: if \(a=0\) \(m\)-almost everywhere, then \(P_s|a|=0\) \(m\)-almost everywhere by the associated \(L^2\) semigroup. Strong Feller continuity and full support make it zero everywhere for \(s&gt;0\).</p>
+<p>The Markov property and conditional Fubini now give, for every initial point and \(0\leq s\leq t\),
+\[
+\mathbb E\left[
+f(X_t)-f(X_s)-\int_s^t b_f(X_r)\,dr
+\,\middle|\,\mathcal F_s\right]=0.
+\tag{III.9}
+\]
+Indeed its conditional value is (III.8) at \(X_s\), with time \(t-s\). All quantities are integrable because \(f,b_f\) are bounded. Thus the form calculation yields an actual continuous martingale from every deterministic start, including all collision starts. No statement about capacity or a quasi-everywhere exceptional set is needed.</p>
+<p>Choose \(\chi=1\) on a neighborhood of \(\overline W\). Apply (III.9) and optional stopping to \(\chi h\). Equation (III.4) gives (III.2). Apply the same reasoning to cutoff versions of \(z_i\) and \(z_i z_j\). Their splitting sums cancel, because these functions are smooth. Within \(W\),
+\[
+Lz_i=0,
+\qquad
+L(z_i z_j)=\rho^2\sum_{B\in\pi(z)}D_B^2(z_i z_j)
+=2\rho^2\mathbf 1_{\{z_i=z_j\}}.
+\tag{III.10}
+\]
+The equality holds also for \(i=j\). The product characterization of quadratic covariation for continuous local martingales gives (III.1). Exhausting a common-cut chart by such \(W\) gives the asserted local version throughout the chart.</p>
+<h4 id="45-exact-howittwarren-parameters-including-zero-indices">4.5. Exact Howitt–Warren parameters, including zero indices</h4>
+<p>Howitt–Warren use bracket rate one and vectors with plus signs on a set \(I\) and minus signs on a disjoint set \(J\). Their Definition 2.1 requires chamber-linear martingales and the equality-indicator bracket; Theorem 2.1 gives existence and uniqueness from every real starting point when the nonnegative-index parameter family is consistent and its strictly positive-index entries are nonnegative. <a href="https://arxiv.org/pdf/math/0611292v2">Howitt–Warren, Definition 2.1 and Theorem 2.1</a>.</p>
+<p>Set \(c=\alpha/2\) and, for \(k,l\geq1\),
+\[
+\theta(k:l)=c\frac{(k-1)!(l-1)!}{(k+l-1)!}.
+\tag{III.11}
+\]
+Define \(H_0=0\), \(H_j=\sum_{r=1}^j r^{-1}\), and complete the family by
+\[
+\theta(k:0)=\theta(0:k)=-cH_{k-1}\quad(k\geq1),
+\qquad \theta(0:0)=0.
+\tag{III.12}
+\]
+For positive \(k,l\), the factorial identity immediately gives
+\[
+\theta(k:l)=\theta(k+1:l)+\theta(k:l+1).
+\]
+On an axis, the same identity follows from
+\[
+-cH_{k-1}=-cH_k+\frac{c}{k},
+\qquad \theta(k:1)=\frac{c}{k}.
+\]
+At \((0,0)\) it reads \(0=0+0\). Thus consistency holds at every nonnegative pair. The positive-index entries are positive, as required; the theorem does not require the zero-index entries to be nonnegative. The drift \(\theta(1:0)-\theta(0:1)\) is zero.</p>
+<p>For an exact block \(B\), the two zero-index directions have equal coefficients and opposite tangential derivatives, and hence cancel:
+\[
+\theta(|B|:0)D_{e_B}h+
+\theta(0:|B|)D_{-e_B}h=0.
+\]
+Under the time change \(Y_u=Z_{u/(2\rho^2)}\), equation (III.1) has unit bracket rate and (III.3) becomes the Howitt–Warren operator with (III.11)–(III.12). The correspondence of orientations is \(I=C\), \(J=A\); symmetry of (III.11) makes their coefficient \(\theta(|C|:|A|)=c r(A,C)\). Thus the physical-time coefficient is exactly \(2\rho^2\theta=\alpha\rho^2 r\).</p>
+<p>As an independent symbolic normalization check, for \(n=2\) and \(h(z)=|z_1-z_2|\), both oriented derivatives at equality are \(2\), so (III.3) equals \(4\alpha\rho^2\mathbf 1_{\{z_1=z_2\}}\). After division by \(2\rho^2\), this is \(2\alpha\mathbf 1_{\{z_1=z_2\}}=4\theta(1:1)\mathbf 1_{\{z_1=z_2\}}\), matching the direct computation following Howitt–Warren's Definition 2.1. This pair check supplements, and does not replace, the all-block computation (III.5).</p>
+<h4 id="46-uniqueness-for-stopped-charts-and-gluing-on-the-circle">4.6. Uniqueness for stopped charts and gluing on the circle</h4>
+<p>First, the real theorem implies uniqueness up to exit from a bounded open set \(O\subset\mathbb R^n\). To see this without presupposing a localization theorem, take any continuous solution of the real martingale identities stopped at its exit time \(\sigma\) from \(O\). At \(\sigma&lt;\infty\), append a fresh global real Howitt–Warren solution started at the exit point. The family of these continuation laws is Borel: Proposition 8.1 gives Feller transition semigroups, and their rational-time finite-dimensional distributions determine the Borel path laws. <a href="https://arxiv.org/pdf/math/0611292v2">Howitt–Warren, Proposition 8.1</a>.</p>
+<p>The appended law solves the full real problem. Conditioning before and after \(\sigma\), and optional sampling for the stopped prefix, verify the chamber-linear martingale and coordinate-product identities. Their brackets concatenate in the same way. These checks can first be made with bounded stopping times and then localized. They give true martingales on each finite horizon: coordinate local martingales have bounded bracket rate, hence bounded second moments and square-integrable maxima; every chamber-linear function is globally Lipschitz, and its drift is bounded because the chamber decomposition is finite. These bounds remove the localization. When \(\sigma=\infty\), the original path already supplies the entire solution. Theorem 2.1 therefore determines the appended law and hence its prefix stopped at the first exit from \(O\). This proves stopped uniqueness. Applying the deterministic time change proves the corresponding assertion for the physical rates (III.1)–(III.3).</p>
+<p>Apply stopped uniqueness to the lift of \(W\Subset U\). Equality of real coordinates is exactly equality of circle coordinates in this common-cut chart, so the lifted stopped path solves precisely the stopped real problem. The result therefore identifies its entire stopped path law, not just its endpoint distribution.</p>
+<p>Finally, choose finitely many nested open sets
+\[
+\overline V_a\subset W_a,
+\qquad \overline W_a\subset U_a,
+\]
+where each \(U_a\) is a common-cut chart and the \(V_a\) cover \(\mathbb T^n\). Such charts cover the space because a finite configuration always omits some point of the circle; compactness then supplies the finite nested cover. Fix a compatible metric and put
+\[
+\delta=\min_a\operatorname{dist}(\overline V_a,W_a^c)&gt;0.
+\]
+Starting at a chart-entry point, choose the first \(a\) with that point in \(V_a\), run until exit from \(W_a\), and repeat. Each finite exit requires a displacement at least \(\delta\). A continuous path is uniformly continuous on every finite time interval, so these exit times cannot accumulate in finite time.</p>
+<p>For any proposed circle solution of the local identities, conditional laws at the chart-entry stopping times satisfy the corresponding stopped problem. This follows directly from optional sampling and disintegration, using a finite basis of the chamber-linear space together with the coordinate and coordinate-product tests; rational time tests suffice to obtain one common conditional full-measure set. Stopped uniqueness determines each next segment from its entry point, regardless of earlier history. Induction therefore determines all successive stopped-segment laws. The absence of finite accumulation determines the full continuous path law on every finite horizon, and hence on \([0,\infty)\). The already constructed target satisfies the local identities, so it is this unique law.</p>
+<h3 id="5-convergence-of-the-full-mass-process">5. Convergence of the full mass process</h3>
+<h4 id="51-uniform-fixed-order-semigroups">5.1. Uniform fixed-order semigroups</h4>
+<p><strong>Lemma 5.1.</strong> For \(f\in C(\mathbb T^n)\), put \(f_N(z)=f(z/L_N)\). Let \(P_{N,t}^{(n)}\) be the auxiliary semigroup in Proposition 3.1. For every finite \(T\),
+\[
+e_N(n,f,T):=
+\sup_{t\le T}\sup_{z\in\mathbb T_{L_N}^n}
+\left|P_{N,t}^{(n)}f_N(z)-(P_t^{(n)}f)(z/L_N)\right|
+\longrightarrow0.
+\tag{IV.1.1}
+\]</p>
+<p><em>Proof.</em> If the assertion fails, choose \(t_N\in[0,T]\) and \(z_N\) with an error bounded below by a positive constant. Compactness gives a subsequence with \(t_N\to t\) and \(z_N/L_N\to x\). Proposition 3.1 and continuity of its limit give
+\[
+P_{N,t_N}^{(n)}f_N(z_N)\longrightarrow(P_t^{(n)}f)(x).
+\]
+The Feller property and strong continuity imply joint continuity of \((s,y)\mapsto P_s^{(n)}f(y)\). Indeed, the semigroup law and contraction give continuity in time in the uniform norm; spatial continuity then gives the joint assertion. The target term at \((t_N,z_N/L_N)\) has the same limit. This is a contradiction, including when \(t=0\).</p>
+<h4 id="52-sampling-and-mass-semigroups">5.2. Sampling and mass semigroups</h4>
+<p>Let \(T_{N,t}\) be the full occupation semigroup. For a symmetric order-\(n\) test, with \(N\ge n\), use the sampling operator of Lemma B.1:
+\[
+D_{N,n}f(\eta)=\binom Nn^{-1}
+\sum_{\sum_x k_x=n}\prod_x\binom{\eta_x}{k_x}f(k).
+\tag{IV.2.1}
+\]
+Here \(f\) is identified with its occupation function. The operator averages samples without replacement, so it is a contraction. Lemma B.1, with \(q=N^2\), \(d=d_N\), and \(L=L_N\) at both population orders, gives
+\[
+T_{N,t}D_{N,n}f=D_{N,n}P_{N,t}^{(n)}f.
+\tag{IV.2.2}
+\]</p>
+<p>For \(f\in C(\mathbb T^n)\), let \(F_f(\mu)=\int f\,d\mu^{\otimes n}\). We may symmetrize \(f\): this leaves \(F_f\) unchanged and commutes with both labelled semigroups. Sampling physical indices with replacement gives \(F_f(\Phi_N(\eta))\). Conditional on distinct indices, this gives \(D_{N,n}f_N(\eta)\). The repeated-index probability is at most \(n(n-1)/(2N)\). Hence
+\[
+\left\|D_{N,n}f_N-F_f\circ\Phi_N\right\|_\infty
+\le\frac{n(n-1)}N\|f\|_\infty.
+\tag{IV.2.3}
+\]
+Use (IV.2.2), (IV.2.3), Lemma 5.1, and the target identity from Section 1. Contraction gives
+\[
+\begin{aligned}
+&amp;\sup_{t\le T,\eta\in\Omega_N}
+\left|T_{N,t}(F_f\circ\Phi_N)(\eta)
+-(\mathsf P_tF_f)(\Phi_N(\eta))\right|\\
+&amp;\qquad\le e_N(n,f,T)+\frac{2n(n-1)}N\|f\|_\infty
+\longrightarrow0.
+\end{aligned}
+\tag{IV.2.4}
+\]
+The second sampling error is applied to \(P_t^{(n)}f\), whose norm is at most \(\|f\|_\infty\).</p>
+<p>The space \(E=\mathcal P(\mathbb T)\) is compact in the weak topology. Mass polynomials form a real algebra: products correspond to tensor products of tests. This algebra contains constants and separates probability measures. Stone–Weierstrass makes it uniformly dense in \(C(E)\). Replacing a continuous test by a polynomial approximation contributes at most twice the approximation error, since both semigroups are contractions. Thus (IV.2.4) gives, for every real \(G\in C(E)\),
+\[
+\sup_{t\le T,\eta\in\Omega_N}
+\left|T_{N,t}(G\circ\Phi_N)(\eta)
+-(\mathsf P_tG)(\Phi_N(\eta))\right|
+\longrightarrow0.
+\tag{IV.2.5}
+\]
+The supremum is over all microscopic occupation states.</p>
+<h4 id="53-proof-of-theorem-1">5.3. Proof of Theorem 1</h4>
+<p><em>Proof.</em> Give \(E=\mathcal P(\mathbb T)\) the Wasserstein distance of order one for the bounded geodesic distance on \(\mathbb T\). It metrizes weak convergence and makes \(E\) compact. Apply Theorem C.1 with
+\[
+S_N=\Omega_N,\qquad Z_N=\eta_N,\qquad
+\pi_N=\Phi_N,\qquad P_t=\mathsf P_t.
+\]
+The supplied target semigroup is conservative and strongly continuous Feller. Equation (IV.2.5) verifies its uniform semigroup hypothesis. A microscopic jump transports mass \(1/N\) to a neighboring site. Coupling all other mass to itself gives
+\[
+\sup_{\mathcal L_N(\eta,\eta&#x27;)&gt;0}
+W_1(\Phi_N(\eta),\Phi_N(\eta&#x27;))
+\le\frac1{NL_N}\longrightarrow0.
+\tag{IV.3.1}
+\]
+This verifies the projected-jump hypothesis. Theorem C.1 gives tightness and a continuous limit. Its finite-dimensional laws are those of the target mass semigroup, so its law is \(Q_{\mu_0}\).</p>
+<p>The initial configurations in Theorem 1 satisfy \(\Phi_N(\eta_N^0)\to\mu_0\). They are therefore allowed in this application, and
+\[
+\operatorname{Law}_{\eta_N^0}(\mu_N(\cdot))
+\Longrightarrow Q_{\mu_0}
+\quad\text{in }D([0,\infty),\mathcal P(\mathbb T)).
+\tag{IV.3.2}
+\]
+The limit is continuous. The only initial-state hypothesis used here is convergence of the empirical measures. The microscopic estimates in Sections 2–4 allow arbitrary starts at each fixed order, and (IV.2.5) is uniform over all of \(\Omega_N\). The auxiliary order is fixed before taking \(N\to\infty\); it does not bound the number of occupied sites in the full system.</p>
+<p>Every \(\mu_0\in\mathcal P(\mathbb T)\) can occur. Put \(m_N=\lfloor\sqrt N\rfloor\), partition the circle into \(m_N\) equal arcs, and let \(p_j\) be their \(\mu_0\)-masses. Choose a lattice point within \(1/L_N\) of each arc's left endpoint. Choose nonnegative integers \(a_j\) with \(\sum_ja_j=N\) and \(\sum_j|a_j/N-p_j|\le m_N/N\), by rounding down and assigning the remainder. Place \(a_j\) particles at the chosen point. If two chosen points agree, add their occupancies. Coupling within arcs and then coupling the rounded weights gives
+\[
+W_1(\Phi_N(\eta_N^0),\mu_0)
+\le\frac1{m_N}+\frac1{L_N}+\frac{m_N}{N}
+\longrightarrow0.
+\]
+Thus diffuse measures are included.</p>
+<p>For random initial configurations with \(\mu_N(0)\) converging in law to deterministic \(\mu_0\), the stopping-time estimates in Appendix C remain uniform over the initial law. In (C.4), condition on the microscopic initial state before taking the limit. The uniform error tends to zero, and the target recursion is a bounded continuous function of the projected initial state. Its expectation therefore converges to its value at \(\mu_0\). Tightness and the same finite-dimensional identification prove the stated random-start conclusion.</p>
+<h3 id="a-harmonic-corrections-and-trace-estimates">A. Harmonic corrections and trace estimates</h3>
+<h4 id="a1-objects-and-hypotheses">A.1. Objects and hypotheses</h4>
+<p>Fix an arbitrary integer \(n\ge2\). Let \(E_n=\mathbb Z^n\), let \(e_i\) be the coordinate unit vectors, and set \(\eta_x(z)=|\{i:z_i=x\}|\). On functions on \(E_n\), define
+\[
+Rv(z)=\sum_{i=1}^n\sum_{\epsilon\in\{-1,1\}}[v(z+\epsilon e_i)-v(z)],
+\]
+\[
+Iv(z)=\sum_{i=1}^n\sum_{\epsilon\in\{-1,1\}}\sum_{j\ne i}
+\mathbf1_{\{z_j=z_i+\epsilon\}}[v(z+\epsilon e_i)-v(z)].
+\]
+Let \(S_n\) be the set of tuples with no adjacent distinct occupied sites. A stack is the set of labels at one occupied site. A full stack is a tuple with all labels at one site. Consider the continuous-time chain with generator \(I\). Let \(\tau\) be its first entrance in \(S_n\), including time zero. Define the absorption extension and killed potential by
+\[
+Pb(z)=\mathbb E_z b(X_\tau),\qquad
+Uv(z)=\mathbb E_z\int_0^\tau v(X_s)\,ds.
+\]
+Here \(b\) is initially a bounded function on \(S_n\), and \(v\) is bounded on \(E_n\setminus S_n\); killed potentials are extended by zero on \(S_n\). Absorption extensions also apply to the functions of at most linear growth occurring below. Put
+\[
+Qb=(RPb)|_{S_n},\qquad Bb=(RURPb)|_{S_n}.
+\]
+In the second expression \(U\) uses the restriction of \(RPb\) to \(E_n\setminus S_n\). Let \(Y\) denote the \(Q\)-chain. Let \(K(z)\) be the number of occupied sites in \(z\in S_n\). Let \(C_n^{\mathrm{near}}\subset S_n\) consist of tuples with two occupied sites at distance two. Set
+\[
+c_n=\frac{n(n-1)}4,\qquad a_n=4n^2(n-1),\qquad d_n=\frac1{8nc_n}.
+\]</p>
+<p>A chamber-affine function means a continuous function \(f:\mathbb R^n\to\mathbb R\) whose restriction to each closed coordinate-order chamber is affine. This includes the chamber-linear functions and their additive constants. Let \(D\ge0\), and require
+\[
+|f(x)-f(y)|\le D\sum_{i=1}^n|x_i-y_i|\qquad(x,y\in\mathbb R^n).
+\]
+For its restriction to \(S_n\), define the canonical correction, whenever the integral is absolutely integrable, by
+\[
+\psi_f(z)=\mathbb E_z\int_0^\infty Qf(Y_s)\,ds,\qquad H_f(z)=f(z)+\psi_f(z).
+\]</p>
+<p>Write \(x|_B=(x_i)_{i\in B}\) for a coordinate subtuple. For every set partition \(\pi\) of \(\{1,\ldots,n\}\), choose distinct integers \(x_B\), \(B\in\pi\), and let \(z_i=x_B\) for \(i\in B\). For \(\varnothing\ne A\subsetneq B\), define \(v_{A,B}\in\mathbb R^n\) to equal minus one on \(A\), plus one on \(B\setminus A\), and zero off \(B\), and put
+\[
+\kappa_{A,B}=\frac{(|A|-1)!(|B|-|A|-1)!}{(|B|-1)!},\qquad
+\partial_v f(z)=\lim_{t\downarrow0}\frac{f(z+tv)-f(z)}t.
+\]
+These directional derivatives exist for the specified functions. Sums over proper nonempty subsets of singleton blocks are zero. Every oriented subset is counted separately.</p>
+<p>For \(0&lt;d\le d_n\), let \(P_d,U_d,\tau_d\) be the analogous absorption extension, killed potential, and first entrance time for \(I+dR\), and define
+\[
+T_d=(RP_d)|_{S_n}.
+\]
+Let \(R^0\) denote \(R\) on zero extensions of bounded functions on \(E_n\setminus S_n\), restricted to this complement. Define \(I^0\) in the same way from \(I\). Operator norms below are supremum norms. Write \(T_0=Q\). For \(f_i(x)=x_i\), set \(H_i=H_{f_i}\), and define
+\[
+\Gamma_d^{ij}(z)=\sum_{y\in S_n,\ y\ne z}T_d(z,y)
+[H_i(y)-H_i(z)][H_j(y)-H_j(z)]
+\qquad(0\le d\le d_n).
+\]</p>
+<h4 id="a2-harmonic-correction-theorem">A.2. Harmonic correction theorem</h4>
+<p><strong>Theorem A.1 (harmonic corrections and trace estimates).</strong> Under the definitions and hypotheses of Section A.1, there exist finite constants \(C_n\ge1\) and, for every real \(p\ge1\), \(C_{n,p}\ge1\). They depend only on the displayed indices. All six assertions below hold with these constants at the same time. The constants are uniform in lattice positions, separations, partitions, and label subsets. They are also uniform in \(f\) subject to its stated bound \(D\). There is a nonincreasing function \(\omega_n:[0,\infty)\to[0,1]\), depending only on \(n\), with \(\omega_n(r)\to0\) as \(r\to\infty\).</p>
+<ol>
+<li>
+<p><strong>(A-H1)</strong> Absorption is almost sure and \(\sup_{z\in E_n}\mathbb E_z\tau\le c_n\), \(\|U\|\le c_n\), \(\|P\|\le1\). The operator \(Q\) is a conservative jump generator of total rate at most \(2n\). Each nonzero off-diagonal \(Q\)-transition moves each label by at most two sites. Moreover,
+   \[
+   QK\le-\mathbf1_{C_n^{\mathrm{near}}},\qquad
+   \sup_z\mathbb E_z\int_0^\infty\mathbf1_{C_n^{\mathrm{near}}}(Y_s)\,ds\le n-1,
+   \]
+   \[
+   \sup_z\mathbb E_z\left(\int_0^\infty\mathbf1_{C_n^{\mathrm{near}}}(Y_s)\,ds\right)^2\le2(n-1)^2,
+   \qquad
+   \mathbb E_z\sup_{0\le s\le t}\max_i|Y_i(s)-z_i|^2\le C_n(t+1)
+   \]
+   for every \(z\in S_n\) and \(t\ge0\).</p>
+</li>
+<li>
+<p><strong>(A-H2)</strong> For every \(f,D\) above, the defining potential is absolutely integrable, and
+   \[
+   \|\psi_f\|_\infty\le a_nD,\qquad QH_f=0,\qquad
+   \|RPH_f\|_\infty+\|BH_f\|_\infty\le C_nD.
+   \]
+   The maps \(f\mapsto\psi_f\) and \(f\mapsto H_f\) are linear. For any coordinate permutation followed by a common integer translation \(g:\mathbb R^n\to\mathbb R^n\), which preserves \(E_n\), \(H_{f\circ g}=H_f\circ g\) on \(S_n\). The correction vanishes on every full-stack tuple. It vanishes identically for every function \(f(x)=b+a\sum_i x_i\), and \(BH_f=0\) for those functions.</p>
+</li>
+<li>
+<p><strong>(A-H3)</strong> For every real \(R_*\ge16\), every partition and tuple defined above with \(|x_B-x_{B&#x27;}|\ge16R_*\) for different blocks, and every allowed \(f\),
+   \[
+   \left|BH_f(z)-\sum_{B\in\pi}\sum_{\varnothing\ne A\subsetneq B}
+   \kappa_{A,B}\partial_{v_{A,B}}f(z)\right|\le C_nD\omega_n(R_*).
+   \]
+   For a single full block the displayed expression inside absolute values is exactly zero, without a separation parameter. No exact formula at arbitrary finite separations is asserted.</p>
+</li>
+<li>
+<p><strong>(A-H4)</strong> The covariance series converge absolutely. They satisfy
+   \[
+   \sup_{z,i,j}|\Gamma_d^{ij}(z)|\le C_n,\qquad
+   \sup_{z,i,j}|\Gamma_d^{ij}(z)-\Gamma_0^{ij}(z)|\le C_nd
+   \quad(0&lt;d\le d_n).
+   \]
+   At every separated-block tuple in (A-H3),
+   \[
+   |\Gamma_0^{ij}(z)-2\mathbf1_{\{z_i=z_j\}}|\le C_n\omega_n(R_*),\qquad
+   |\Gamma_d^{ij}(z)-2\mathbf1_{\{z_i=z_j\}}|\le C_n(\omega_n(R_*)+d).
+   \]</p>
+</li>
+<li>
+<p><strong>(A-H5)</strong> For every \(0&lt;d\le d_n\), absorption for \(I+dR\) is almost sure,
+   \[
+   U_d=(\operatorname{Id}-dUR^0)^{-1}U,\qquad
+   \|U_d\|\le2c_n,\qquad \|U_d-U\|\le8nc_n^2d.
+   \]
+   The inverse is its norm-convergent Neumann series. The chain with generator \(R+d^{-1}I\), observed in its time spent in \(S_n\), has conservative generator \(T_d\) and total rate at most \(2n\). For every bounded \(b:S_n\to\mathbb R\), the following identities are exact; the absorption difference \(P_db-Pb\) vanishes on \(S_n\):
+   \[
+   P_db-Pb=dU_dRPb,
+   \]
+   \[
+   T_db=Qb+dBb+d^2(RU_dR^0URPb)|_{S_n}.
+   \]
+   The same identities hold with \(b=H_f\), whose absorption expectations are finite. Consequently
+   \[
+   \|T_dH_f-dBH_f\|_\infty\le C_nDd^2,\qquad
+   \|T_dH_f\|_\infty\le C_nDd.
+   \]</p>
+</li>
+<li>
+<p><strong>(A-H6)</strong> Fix any \(z\in S_n\) and any initiating independent step \(w=z+\epsilon e_i\). Run \(I+dR\) from \(w\) until its first entrance in \(S_n\). Let \(J\) count the independent \(dR\)-events at excursion times in \((0,\tau_d]\). At time zero, the state is \(w\), immediately after the initiating step. Thus an independent jump that causes entrance is included. If \(w\in S_n\), this excursion has duration zero and \(J=0\). Including the initiating step and writing \(X\) for this excursion path,
+   \[
+   \mathbb P(J\ge j)\le(2nc_nd)^j\quad(j\in\mathbb N_0),\qquad
+   \max_i\sup_{0\le s\le\tau_d}|X_i(s)-z_i|\le n+J
+   \quad\hbox{almost surely}.
+   \]
+   Uniformly over these choices and over \(0&lt;d\le d_n\),
+   \[
+   \mathbb E(1+J)^p\le C_{n,p},\qquad
+   \mathbb E[(1+J)^p\mathbf1_{\{J\ge1\}}]\le C_{n,p}d.
+   \]
+   For every initial tuple \(x\in E_n\), not only initiating-step states,
+   \[
+   \mathbb E_x\tau_d^p\le C_{n,p}.
+   \]
+   In particular, for every allowed \(f\), every \(z\in S_n\), and \(0\le d\le d_n\),
+   \[
+   \sum_{y\in S_n,\ y\ne z}T_d(z,y)|H_f(y)-H_f(z)|^p\le C_{n,p}D^p.
+   \]</p>
+</li>
+</ol>
+<p><strong>One-label convention.</strong> For \(n=1\), take \(S_1=\mathbb Z\), \(I=0\), \(P=P_d=\operatorname{Id}\), \(U=U_d=0\), \(Q=T_d=R\), \(B=0\), and \(d_1=1\). A chamber-affine \(f\) is affine on \(\mathbb R\), so \(H_f=f\). The near set is empty, the occupation integrals are zero, the separated split sum is empty, \(\Gamma_d^{11}=2\), and all expansion identities hold exactly. Excursions have \(\tau_d=J=0\); the initiating displacement is one. The displacement and trace jump moment bounds hold with finite constants depending only on their stated indices. This convention is part of the statement.</p>
+<h4 id="a3-proof-conventions">A.3. Proof conventions</h4>
+<p><em>Proof of Theorem A.1.</em> Until the last section, \(n\ge2\). A constant denoted \(C_n\) can increase a finite number of times. Each increase depends only on \(n\). Likewise \(C_{n,p}\) depends only on \(n,p\). These conventions produce simultaneous constants by taking the maximum of the finitely many constants required below. All chains below have bounded total rates for fixed \(n,d\). Construct them with exponential clocks. These chains have no explosion. Compensate their jump counts to obtain the stopped Dynkin identities and square-martingale identities below. For each unbounded stopping time, the proof supplies integrability or a bounded approximation.</p>
+<h4 id="a4-pure-interaction-and-the-leading-trace">A.4. Pure interaction and the leading trace</h4>
+<p>Interaction jumps only into already occupied sites. The set of occupied sites therefore decreases. From any initial tuple, the chain stays on a finite set of at most \(n\) sites, and within each connected component of that initial set. Each component is an interval of length at most \(n\). In particular every label remains within distance \(n-1\) of its starting site. For
+\[
+V(z)=\sum_x\eta_x(z)^2,
+\]
+an interaction edge whose endpoint masses are \(a,b&gt;0\) has two directed occupation jumps, each of rate \(ab\). Their changes of \(V\) are \(2(b-a+1)\) and \(2(a-b+1)\), whose sum is four. Consequently
+\[
+IV(z)=4\sum_{\{x,x+1\}}\eta_x(z)\eta_{x+1}(z)
+\ge4\mathbf1_{S_n^c}(z).
+\]
+Here \(n\le V\le n^2\). Dynkin's identity stopped at \(t\wedge\tau\) yields \(4\mathbb E_z(t\wedge\tau)\le n^2-n\). Monotone convergence proves almost sure absorption and the bound \(\mathbb E_z\tau\le c_n\). It also proves \(\|U\|\le c_n\); the absorption expectation is a contraction on bounded functions. The chain stays in the finite initial set of sites. Thus \(Pb(z)\) is finite if \(b\) has at most linear growth.</p>
+<p>Starting in \(S_n\), perform an independent jump at total attempt rate \(2n\) and then perform pure interaction until absorption. This defines a probability endpoint kernel for each attempt and the generator \(Q=RP|_{S_n}\). Self-return attempts are ignored in its off-diagonal rates. Thus \(Q\) is conservative and has total rate at most \(2n\). The independent step can create an occupied component on at most three consecutive sites. These are the source, its chosen neighbor, and possibly the site two units in that direction. Every other site is unaffected. This remains true if the source site is emptied. Absorption in that component moves every participating label by at most two sites. This proves the claimed jump bound.</p>
+<p>A component on three consecutive sites absorbs on either one site or its two endpoints; a component on two sites absorbs on one site. Thus an independent attempt followed by absorption cannot increase the number \(K\) of stacks. Suppose specifically that occupied sites at zero and two have masses \(a,b\). The total rate of attempts into the intervening site is \(a+b\). After each such attempt the intervening population is one. For pure interaction, the population at each specified site is a martingale. Across each edge, its upward and downward changes have the same rate. This rate is the product of the endpoint masses. At absorption the intervening population is either zero or \(a+b\). Bounded optional stopping therefore gives probability \(1/(a+b)\) of a full stack there. The rate of this particular merger is one. Selecting any distance-two pair proves
+\[
+QK\le-\mathbf1_{C_n^{\mathrm{near}}}.
+\]
+Dynkin's identity for the bounded function \(K\), then monotone convergence, gives, for every \(z\in S_n\),
+\[
+\mathbb E_z A\le n-1,\qquad
+A=\int_0^\infty\mathbf1_{C_n^{\mathrm{near}}}(Y_s)\,ds.
+\]
+Tonelli's theorem and the Markov property give
+\[
+\mathbb E_z A^2
+=2\mathbb E_z\int_0^\infty \mathbf1_{C_n^{\mathrm{near}}}(Y_s)
+\mathbb E_{Y_s}A\,ds
+\le2(n-1)^2.
+\]
+First use finite integration rectangles. Their time diagonal has Lebesgue measure zero. Then use monotone convergence. It does not require integrability before this argument.</p>
+<p>Outside \(C_n^{\mathrm{near}}\), each stack moves one site in each direction at rate one. A stack of size \(a\) initiates an attempt in a specified direction at rate \(a\). Its interaction chain on two sites ends at the new site with probability \(1/a\). The same population martingale gives this probability. No other stack can interact with it. Otherwise the endpoint is the original tuple. In particular \(Qz_i=0\) off the near set, \(|Qz_i|\le4n\) everywhere, and its compensated-coordinate martingale \(M_i\) has predictable quadratic-variation density at most \(8n\). Localization, followed by the bounded jump-rate estimates, gives \(\mathbb E M_i(t)^2\le8nt\) and the square maximal inequality gives \(\mathbb E\sup_{s\le t}|M_i(s)|^2\le32nt\). Hence
+\[
+Y_i(t)-z_i=M_i(t)+\int_0^t Qz_i(Y_s)\,ds,
+\]
+and the preceding bound on \(A^2\) proves
+\[
+\mathbb E_z\sup_{s\le t}\max_i|Y_i(s)-z_i|^2\le C_n(t+1).
+\tag{A.1}
+\]</p>
+<h4 id="a5-construction-and-basic-identities">A.5. Construction and basic identities</h4>
+<p>Continuity of a chamber-affine function implies that its chamber formulas have the common intercept \(f(0)\). Fix an ordering of the stacks. Translate one stack by plus or minus one without passing another stack. The move stays in one closed coordinate-order chamber. The two centered affine increments cancel. By Section A.4 this applies to every \(Q\)-move outside the near set. Also a \(Q\)-move changes the sum distance by at most \(2n\). Thus
+\[
+|Qf|\le4n^2D\mathbf1_{C_n^{\mathrm{near}}}.
+\tag{A.2}
+\]
+Section A.4 now gives absolute integrability of the defining potential and
+\[
+\|\psi_f\|_\infty\le4n^2D(n-1)=a_nD.
+\tag{A.3}
+\]
+The Markov property gives, for every \(t\ge0\),
+\[
+\psi_f=\int_0^t e^{sQ}Qf\,ds+e^{tQ}\psi_f.
+\]
+The operator \(Q\) has norm at most \(4n\) on bounded functions. Thus its exponential is differentiable in this norm. Differentiating the last identity at zero yields \(Q\psi_f=-Qf\). The formula defining \(Qf\) is a finite sum of finite absorption expectations, even if \(f\) is unbounded. Thus \(QH_f=0\) at every point. This equality does not assert a semigroup domain for unbounded functions.</p>
+<p>Linearity follows from the absolutely integrable defining integral. The independent and interaction clocks, their absorption kernels, the near set, and \(Q\) commute with coordinate permutations and common integer translations. Applying such a map to the defining integral proves the claimed covariance of \(H\). From a full stack, the \(Q\)-chain remains a full stack. The restriction of \(f\) to the common diagonal is affine. Hence \(Qf=0\) and \(\psi_f=0\) there.</p>
+<p>For \(g(x)=\sum_i x_i\), one has \(Rg=0\). The two directed interaction occupation jumps on each edge have opposite changes of \(g\) and equal rates, so \(Ig=0\). Its pure-interaction path is bounded relative to its initial value by the finite-site argument. Optional stopping gives \(Pg=g\). Hence \(Qg=RPg=0\), \(\psi_g=0\), and \(Bg=RURPg=0\). Linearity includes additive constants and every multiple of \(g\).</p>
+<p>For later use, an absorption endpoint from any \(x\in E_n\) has sum distance at most \(n(n-1)\) from \(x\). Therefore, for neighboring tuples \(x,x+\epsilon e_i\),
+\[
+|PH_f(x+\epsilon e_i)-PH_f(x)|
+\le D[2n(n-1)+1]+2a_nD.
+\]
+Writing
+\[
+A_n=2n[2n(n-1)+1+2a_n],
+\]
+we obtain
+\[
+\|RPH_f\|_\infty\le A_nD,\qquad
+\|BH_f\|_\infty\le4nc_nA_nD.
+\tag{A.4}
+\]
+This proves (A-H2).</p>
+<h4 id="a6-perturbed-excursions-and-the-exact-expansion">A.6. Perturbed excursions and the exact expansion</h4>
+<p>Fix \(0&lt;d\le d_n\) and put \(q=2nc_nd\le1/4\). Realize \(I+dR\) by pure-interaction clocks and an independent rate-\(2nd\) clock with uniformly selected label and direction. From any state, the probability that this independent clock rings before pure-interaction absorption is
+\[
+\mathbb E(1-e^{-2nd\tau})\le2nd\mathbb E\tau\le q.
+\tag{A.5}
+\]
+Count each such event, including an event that itself enters \(S_n\), and restart if its new state has not already entered \(S_n\). Thus \(J\) counts independent events on the interval \((0,\tau_d]\) in the excursion clock. It includes an independent jump that causes entrance. If the starting tuple is in \(S_n\), then \(J=0\). The strong Markov property and (A.5) prove \(\mathbb P(J\ge j)\le q^j\), both for excursions after an initiating step and for the corresponding count from an arbitrary starting state. Each interval between restarts has expected length at most \(c_n\). Summing its expectation on the event that it is reached gives
+\[
+\sup_x\mathbb E_x\tau_d\le\frac{c_n}{1-q}\le2c_n.
+\tag{A.6}
+\]
+In particular absorption is almost sure. Applying Markov's inequality conditionally at deterministic times \(4c_n,8c_n,\ldots\) gives
+\[
+\sup_x\mathbb P_x(\tau_d&gt;4c_n k)\le2^{-k}\qquad(k\in\mathbb N_0).
+\]
+Integrating this tail against \(pt^{p-1}\) proves \(\sup_x\mathbb E_x\tau_d^p\le C_{n,p}\) for every real \(p\ge1\).</p>
+<p>There is a useful pathwise displacement bound. Take all initially occupied sites and all sites newly occupied by independent events, including the initiating event when present. Interaction never adds to this set. With an initiating event and \(J\) further independent events its cardinality is at most \(n+1+J\). A label's nearest-neighbor trajectory stays in the connected component of this set containing its initial site. On the line every such component is an interval of diameter at most \(n+J\). This proves the asserted pathwise excursion bound, even if previously separate occupied components become joined. Without an initiating event the same argument gives diameter at most \(n-1+J\).</p>
+<p>For every real \(p\ge1\), the geometric tail gives
+\[
+\mathbb E[(1+J)^p\mathbf1_{\{J\ge1\}}]
+\le\sum_{j=1}^\infty(1+j)^p q^j
+\le q\sum_{j=1}^\infty(1+j)^p4^{1-j}\le C_{n,p}d.
+\tag{A.7}
+\]
+Adding the event \(J=0\) proves the other claimed moment bound.</p>
+<p>On bounded functions on the complement of \(S_n\), the potential \(U_d\) in (A.6) solves the killed Dirichlet equation
+\[
+-(I^0+dR^0)U_dv=v.
+\]
+Condition on the first holding time and jump to obtain this equation. Bounded total rates and (A.6) justify this step. Let \(w\) be bounded with zero boundary values. The stopped Dynkin identity for pure interaction gives \(U(-I^0w)=w\). The terminal boundary value is zero. Bounded convergence applies at absorption. Apply this identity to \(w=U_dv\) to obtain
+\[
+U_dv=Uv+dUR^0U_dv.
+\]
+Since \(\|R^0\|\le4n\) and \(4ndc_n\le1/2\), this proves the norm-convergent Neumann identity and bounds
+\[
+U_d=(\operatorname{Id}-dUR^0)^{-1}U,
+\quad \|U_d\|\le2c_n,
+\quad \|U_d-U\|\le8nc_n^2d.
+\tag{A.8}
+\]
+The same series gives the exact resolvent identity
+\[
+U_d-U=dU_dR^0U.
+\tag{A.9}
+\]</p>
+<p>For bounded boundary data \(b\), its pure absorption extension satisfies \(IPb=0\) off \(S_n\). Stopped Dynkin for \(Pb\) under \(I+dR\), with (A.6) and bounded convergence, yields
+\[
+P_db-Pb=dU_dRPb.
+\tag{A.10}
+\]
+For \(b=H_f\), (A.4) bounds its residual, and the neighboring-increment bound preceding (A.4) bounds all increments of \(PH_f\). The same stopped calculation applies as follows. From a fixed initial tuple, the maximum excursion displacement is at most \(n-1+J\). Its moments are finite by (A.7). The neighboring-increment bound bounds \(|PH_f(X_s)-PH_f(X_0)|\) by a constant times this sum distance. Thus the stopped terminal values are uniformly integrable. The integral of its bounded residual is dominated in expectation by (A.6). First apply Dynkin at bounded times and with a finite spatial stopping region. Then remove both stops. This proves (A.10) for \(H_f\). In particular its perturbed absorption expectation is finite.</p>
+<p>Consider the chain with generator \(R+d^{-1}I\). In \(S_n\), its clock initiates independent steps at total rate \(2n\). Its excursion absorption distribution is \(P_d\): multiplication of the excursion generator by \(d\) gives \(I+dR\). Consequently its trace generator is \(T_d=RP_d|_{S_n}\), with off-diagonal formula
+\[
+T_d(z,y)=\sum_{i,\epsilon}P_d(z+\epsilon e_i,y)\qquad(y\ne z).
+\tag{A.11}
+\]
+It is conservative and has total rate at most \(2n\). The time change is defined for all trace times. At repeated visits to \(S_n\), the independent attempt holding times are independent exponential variables of rate \(2n\). Their infinite sum is almost surely infinite. Excursions are almost surely finite by (A.6). Ignoring self-return attempts changes neither the generator nor this conclusion.</p>
+<p>Apply \(R\) to (A.10), restrict to \(S_n\), and use (A.9). For bounded \(b\), and also for \(H_f\), this gives the exact expansion
+\[
+T_db=Qb+dBb+d^2(RU_dR^0URPb)|_{S_n}.
+\tag{A.12}
+\]
+For bounded \(b\) the remainder operator has norm at most \(128n^3c_n^2d^2\). For \(H_f\), use (A.4) in place of the bound \(\|RPb\|\le4n\|b\|\) to obtain a remainder at most \(32n^2c_n^2A_nDd^2\). Since \(QH_f=0\) and \(BH_f\) is bounded by (A.4), this proves both corrector estimates for \(T_d\).</p>
+<p>Formula (A.11), the pathwise excursion bound, and (A.3) also give every trace jump moment in the statement, because an excursion endpoint \(y\) satisfies
+\[
+|H_f(y)-H_f(z)|\le Dn(n+J)+2a_nD.
+\tag{A.13}
+\]
+There are \(2n\) initiating choices. For \(d=0\) the identical argument has \(J=0\).</p>
+<h4 id="a7-full-block-action-and-labelled-factorial-coefficients">A.7. Full-block action and labelled factorial coefficients</h4>
+<p>This section applies the preceding construction with any order \(m\ge2\). Let \(f\) have that order. Suppose two chambers share a facet \(x_i=x_j\). Their gradients differ by a multiple of \(e_i-e_j\). Their affine difference is zero on that hyperplane. Adjacent exchanges connect all coordinate orders, so the sum of gradient coordinates is a common number \(\ell\). It follows that
+\[
+f(x+t\mathbf1)=f(x)+\ell t.
+\]
+Subtract \(f(0)+(\ell/m)\sum_i x_i\). By Section A.5 this does not change \(\psi_f\) or \(BH_f\). The reduced function is translation invariant and vanishes on full stacks. The correction and \(H_f\) are translation invariant as well; for the correction this follows directly from the invariance of \(Qf\). All calculations until restoration of the affine term refer to this reduced function.</p>
+<p>Index an oriented two-stack tuple by its nonempty proper left subset \(A\subset\{1,\ldots,m\}\). Write \(H(A,r)\) for its corrected value with left site zero and right site \(r\ge2\). Set
+\[
+c_A=f(0\mathbf1_A+1\mathbf1_{A^c}),\qquad a_A=H(A,2),\qquad
+\kappa_A=\frac{(|A|-1)!(m-|A|-1)!}{(m-1)!}.
+\]
+For \(r\ge3\), the two stack centers move independently at rate one in each direction. Their gap therefore moves in each direction at rate two, without changing the label subset. Translation invariance and \(QH=0\) give zero second difference in \(r\). A sequence with zero second difference for every \(r\ge3\) is affine on \(r\ge2\). Subtract its first two values and use induction. Since \(|H(A,r)-rc_A|\) is bounded by (A.3), its slope is \(c_A\). Thus
+\[
+H(A,r)=(r-2)c_A+a_A\qquad(r\ge2).
+\tag{A.14}
+\]</p>
+<p>Start with left subset \(A\) at zero and its complement at two. Consider inward independent attempts followed by pure-interaction absorption at the same two sites with left subset \(A&#x27;\). Define \(K(A,A&#x27;)\) as their total rate. Include self-return outcomes in \(K(A,A)\). The total inward attempt rate is \(m\). The center-full-stack outcome has rate one by Section A.4. Every other outcome is either a full stack at an endpoint or a two-stack outcome counted in \(K\). Hence \(K\) is nonnegative and every row sum is at most \(m-1\). Put \(M=m\operatorname{Id}-K\). It is invertible, as is seen from the convergent series for \((\operatorname{Id}-K/m)^{-1}\). The two outward effective translations at gap two contribute \(2c_A\) to \(QH\), and full-stack outcomes have corrected value zero. The remaining inward contribution is \((Ka)_A-ma_A\). Therefore
+\[
+Ma=2c.
+\tag{A.15}
+\]</p>
+<p>We now prove the weighted symmetry used to evaluate this expression. This does not follow from label exchangeability alone. On a finite cycle of length \(L&gt;6m+10\), the labelled generator \(I+dR\) has positive weights
+\[
+\omega_d(z)=\prod_{x:\eta_x(z)&gt;0}\prod_{r=0}^{\eta_x(z)-1}(d+r).
+\tag{A.16}
+\]
+Move a specified label from a site of mass \(a\) to a neighboring site of mass \(b\ge0\). The forward rate is \(d+b\). The reverse rate is \(d+a-1\). The ratio of destination weight to source weight is \((d+b)/(d+a-1)\). Thus every off-diagonal detailed-balance identity holds.</p>
+<p>Eliminating the complement of \(S_m\) preserves this weighted symmetry. Here is the finite-matrix verification. Write the generator in blocks for \(S_m\) and its complement \(F\), and let \(\Omega_S,\Omega_F\) be the diagonal matrices of its weights. The killed inverse \((-L_{FF})^{-1}\) exists by absorption, and weighted symmetry of \(L\) implies symmetry of \(\Omega_F(-L_{FF})^{-1}\). The trace matrix is
+\[
+L_{SS}+L_{SF}(-L_{FF})^{-1}L_{FS}.
+\]
+Using \(\Omega_SL_{SF}=L_{FS}^{\mathsf T}\Omega_F\) shows that its product on the left by \(\Omega_S\) is symmetric. Dividing this trace matrix by \(d\) gives \(T_d\). Therefore \(\omega_d(z)T_d(z,y)=\omega_d(y)T_d(y,z)\).</p>
+<p>The preceding arguments also apply to the cycle. Pure interaction cannot add occupied sites. Since \(m&lt;L\), its initial occupied components are paths. The calculation for \(V\) is unchanged. The estimates (A.5)–(A.12) apply with the same bounds. In particular, the expansion converges in the norm for bounded operators. For the tuples under consideration, its coefficients \(Q\) and \(B\) equal the line coefficients. The operators \(P,U\) use only initially occupied components. A coefficient of \(Q\) uses at most one independent event. A coefficient of \(B\) uses at most two. Start with the sites zero and two, or the single site zero. Add at most two neighboring sites. The affected sites lie in the resulting fixed interval. No wrap around can occur for the chosen \(L\). Thus the following finite-cycle coefficient comparisons establish identities for the line.</p>
+<p>Between two-stack tuples at sites zero and two, compare the coefficient of \(d^2\) in detailed balance. The leading weight is \(d^2(|A|-1)!(m-|A|-1)!\), and the leading trace operator is \(Q\). Off-diagonal transitions keeping these sites and changing the left subset are exactly those in \(K\). Thus
+\[
+\kappa_AK(A,A&#x27;)=\kappa_{A&#x27;}K(A&#x27;,A).
+\tag{A.17}
+\]
+The diagonal case is automatic. Consequently \(M\) is symmetric for the weights \(\kappa_A\).</p>
+<p>Let \(o\) be the full stack at zero and let \(s\) be any two-stack tuple. Since \(Q\) never increases the stack count, \(Q(o,s)=0\). For the two-stack tuples of interest its weight divided by \(\omega_d(o)\) equals \(d\kappa_A+O(d^2)\). Compare the coefficient of \(d^2\) in \(\omega_d(o)T_d(o,s)=\omega_d(s)T_d(s,o)\), using (A.12). This proves
+\[
+B(o,s)=\kappa_AQ(s,o).
+\tag{A.18}
+\]
+The row of \(B\) at \(o\) can have no split destinations except two-stack tuples at \((-1,1)\), \((0,2)\), or \((-2,0)\). Indeed its first independent event creates two neighboring occupied sites; interaction stays within them; one more independent event can adjoin only one neighboring site. A stable subset of the resulting three consecutive sites is a full stack or the two endpoints. Terms arising from the negative parts of either \(R\) yield destinations with fewer additions and obey the same assertion.</p>
+<p>For a fixed oriented subset \(A\), the reverse merger rates from these three placements to the full stack at zero sum to \((M\mathbf1)_A\). To see this, start instead with the tuple \(A\) at zero and its complement at two. The three full-stack inward outcomes are at zero, one, and two; their total rate is \(m-\sum_{A&#x27;}K(A,A&#x27;)\). Common translations identify their individual rates with those from the placements \((0,2)\), \((-1,1)\), and \((-2,0)\), respectively, to zero. Their corrected split values are all \(a_A\) by translation invariance and (A.14). Every full-stack value is zero. Therefore (A.18), weighted symmetry (A.17), and (A.15) give
+\[
+BH_f(o)=\sum_A\kappa_A(M\mathbf1)_Aa_A
+=\sum_A\kappa_A(Ma)_A
+=2\sum_A\kappa_Ac_A.
+\tag{A.19}
+\]
+For the reduced function, the derivative in direction \(v_{A,\{1,\ldots,m\}}\) is \(2c_A\). To see this, translate that vector by \(\mathbf1\). Then use homogeneity on its chamber. On restoring the subtracted affine term, its derivative contributions cancel in complementary pairs, since \(\kappa_A=\kappa_{A^c}\) and the vectors are opposite. Its \(B\)-action is zero by Section A.5. This proves the exact full-block formula with every oriented subset counted separately. In particular there is no additional factor of two or combinatorial exchange factor.</p>
+<h4 id="a8-localization-by-coupling">A.8. Localization by coupling</h4>
+<p>Fix a partition and tuple as in (A-H3), with \(R_*\ge16\) and distinct block sites at distance at least \(16R_*\). Order the blocks by their sites. On the region with this strict external block order, there are chamber-affine functions \(f_B:\mathbb R^B\to\mathbb R\), each with sum-norm Lipschitz bound \(D\), such that
+\[
+f(x)=f(0)+\sum_{B\in\pi}f_B(x|_B).
+\tag{A.20}
+\]
+To construct \(f_B\), restrict each chamber gradient of \(f\) to the coordinates in \(B\), using the fixed external order. These coordinates do not depend on internal orders in other blocks: an adjacent exchange there changes the gradient only by a multiple of the difference of two unit vectors in that other block. Use these restricted gradients as the linear formulas for \(f_B\), with zero intercept. Adjacent formulas agree on their common face. Successive exchanges of equal coordinates give agreement at every further intersection. Thus \(f_B\) is continuous. Its gradient coordinates have absolute value at most \(D\). Integration along a segment proves its Lipschitz bound. The chamber formulas then give (A.20).</p>
+<p>Apply the correction construction to each block subtuple and put
+\[
+W=f+\sum_{B\in\pi}\psi_{f_B},\qquad \Delta=H_f-W.
+\]
+For singleton blocks use Section A.11; their correction is zero. By (A.3),
+\[
+\|\Delta\|_\infty\le C_nD.
+\tag{A.21}
+\]
+If every label lies within \(2R_*\) of its reference block site, every \(Q\)-endpoint lies within \(4R_*\). The blocks remain separated and retain their external order. The interaction component of each attempt lies in one reference block. Thus \(Q\) acts on block sums as the sum of the isolated block generators. Equation (A.20) and \(Q_BH_{f_B}=0\) give \(QW=0\), hence \(Q\Delta=0\), on this region.</p>
+<p>We first identify the endpoints needed for the \(B\)-row at \(z\). In \(B=RURP|_{S_n}\), the first independent event creates a neighboring pair in one reference block, or ends in \(S_n\). In the latter case the killed potential is zero. During the pure-interaction integral, no new site becomes occupied. The inner \(R\) adds at most one neighboring site. If its event is in the same block, that block has at most three consecutive occupied sites. Absorption gives a full stack or two substacks at distance two. If the event is in another block, the two separate two-site components each absorb to a full stack. Negative terms in either \(R\) omit an event and obey the same bounds. Therefore the signed row has finite support among tuples \(s\) with
+\[
+|s_i-z_i|\le2\quad\text{for every }i,
+\]
+where each reference block is full except, at most, one block with two substacks at distance two. Also
+\[
+\|B\|\le\|R\|\|U\|\|R\|\|P\|\le16n^2c_n,
+\qquad B\mathbf1=0.
+\]
+In particular, this bounds the total variation of the signed row.</p>
+<p>For any such local tuple \(s\), run two products of isolated block \(Q_B\)-chains from \(s\) and \(z\). The split block in the first product merges almost surely in finite time. Indeed, above gap two its gap has rates two in each direction. It returns to gap two almost surely: from \(r&gt;2\), the chance to hit \(M&gt;r\) before two is \((r-2)/(M-2)\), by the stopped coordinate martingale. Let \(M\to\infty\). At gap two, the merger rate is at least one and the total attempt rate is at most \(2n\), by Section A.4. Each attempt from gap two therefore gives conditional merger probability at least \(1/(2n)\). An attempt that leaves gap two without merger is followed by a return almost surely. The probability of avoiding merger for \(k\) such trials is at most \((1-1/(2n))^k\). Recurrence and the strong Markov property prove the assertion. These bounds hold after every redistribution of labels. If no block is split, take the merger time to be zero.</p>
+<p>Run the products independently until that merger. Each reference block is then a full stack in both products. Couple each corresponding pair of stack centers independently until they meet, then synchronously. Full stacks jump left and right at rate one. The difference of two corresponding centers is recurrent, so each pair meets in finite time almost surely. Use separate clock systems for different reference blocks and fresh exponential clocks at each switch. In the joint filtration, each marginal retains the sum of its isolated block generators.</p>
+<p>Let \(T\) be the time by which all corresponding centers have met. Let \(R\) be the largest displacement from the reference block sites by either product up to \(T\). There are finitely many blocks, so \(T&lt;\infty\) almost surely. Bounded jump rates then give \(R&lt;\infty\) almost surely. After separate translations of the reference blocks, this coupling depends only on the partition, the split subset, and the offsets in \(\{-2,-1,0,1,2\}\). There are finitely many such local types for fixed \(n\). Hence
+\[
+\omega_n(r)=\max_{\text{local types}}\mathbb P(R\ge r)
+\longrightarrow0\qquad(r\to\infty).
+\tag{A.22}
+\]
+This defines one nonincreasing function for every partition, reference position, and allowed test \(f\).</p>
+<p>Stop the products at \(T\) or when either displacement reaches \(R_*\), whichever occurs first. Before this stop the marginal generators agree with \(Q\). Each product is stable within its reference blocks. All stopped endpoints lie within \(R_*+2&lt;2R_*\) of their reference sites, and different reference blocks remain nonadjacent. Thus the endpoints belong to \(S_n\). The two stopped \(\Delta\)-processes are bounded martingales in the joint filtration. If coupling occurs before displacement exit, their terminal values agree. Bounded optional sampling therefore gives
+\[
+|\Delta(s)-\Delta(z)|\le2\|\Delta\|_\infty\omega_n(R_*).
+\tag{A.25}
+\]
+For the unbounded stop, first impose a deterministic time bound, then use bounded convergence. The signed row has zero mass, so (A.25) yields
+\[
+|B\Delta(z)|\le C_nD\omega_n(R_*).
+\]</p>
+<p>It remains to evaluate \(BW(z)\). On every configuration used in this local row calculation, (A.20) and independent block absorption give
+\[
+P_nW=f(0)+\sum_{B\in\pi}P_BH_{f_B}.
+\]
+Here the subscripts specify the particle set. After the first independent event, only its own block can be transient. Each other block remains full and satisfies \(R_BP_BH_{f_B}=Q_BH_{f_B}=0\). Thus the inner \(R\) and the killed potential contribute only in the affected block. Summing the initiating events gives the exact factorization
+\[
+BW(z)=\sum_{B\in\pi}B_BH_{f_B}(x_B\mathbf1_B).
+\]
+The full-block formula (A.19) evaluates each term. By (A.20), its directional derivatives are those of \(f\) at \(z\). The bound for \(B\Delta\) proves (A-H3). A single full block uses the exact formula from Section A.7.</p>
+<h4 id="a9-coordinate-covariances">A.9. Coordinate covariances</h4>
+<p>Fix the coordinate test \(f_i(x)=x_i\). At a tuple with one full stack per reference block, each local correction vanishes. Apply (A.25) with \(s=z+\epsilon\mathbf1_B\), for \(\epsilon\in\{-1,1\}\). This tuple is one of the unsplit local types. Since \(\Delta=\psi_{f_i}\) at both endpoints,
+\[
+H_i(z+\epsilon\mathbf1_B)-H_i(z)
+=\epsilon\mathbf1_{\{i\in B\}}+O(C_n\omega_n(R_*)).
+\tag{A.26}
+\]
+At this separated state these are all off-diagonal \(Q\)-transitions, each at rate one. Multiplying the two increments and summing gives
+\[
+\left|\Gamma_0^{ij}(z)-2\mathbf1_{\{z_i=z_j\}}\right|\le C_n\omega_n(R_*).
+\tag{A.27}
+\]
+Since \(0\le\omega_n\le1\), products of error terms are included in the same bound. At an arbitrary state, every coordinate increment of \(H_i\) is at most \(2+2a_n\) along a \(Q\)-jump, by (A.3) and Section A.4. The total rate is at most \(2n\), so \(\Gamma_0\) is bounded everywhere.</p>
+<p>Couple each perturbed excursion after a fixed initiating step to a pure-interaction excursion until the first additional independent event. Sample the entire pure-interaction chain independently of the extra independent clocks. Continue this sampled pure path if an extra event occurs. The sampled pure chain has the pure-excursion marginal law. If no extra event occurs before absorption, the two endpoints coincide and \(J=0\). On the complementary event \(J\ge1\), the pure endpoint is within \(n\) of the initial tuple coordinatewise, and the perturbed endpoint is within \(n+J\). Their corrected coordinate increments are therefore bounded by \(C_n\) and \(C_n(1+J)\), respectively. It follows that the absolute difference of the products of increments for coordinates \(i,j\) is at most \(C_n[(1+J)^2+1]\mathbf1_{\{J\ge1\}}\). Equation (A.7), summed over the \(2n\) initiating steps in (A.11), gives
+\[
+\sup_{z,i,j}|\Gamma_d^{ij}(z)-\Gamma_0^{ij}(z)|\le C_nd.
+\tag{A.28}
+\]
+Absolute convergence follows already from the second-moment instance of (A.13), using \(|ab|\le(a^2+b^2)/2\). Combining (A.27), (A.28), and the global bound proves every covariance assertion. Finally, the split sum for a coordinate test is zero. Complementary subsets have equal factorial coefficients and opposite vectors. Thus the split sum in (A-H3) is zero for a coordinate test.</p>
+<h4 id="a10-uniformity-of-the-conclusions">A.10. Uniformity of the conclusions</h4>
+<p>Sections A.4–A.5 apply to each fixed integer \(n\ge2\). Section A.6 applies to every \(0&lt;d\le d_n\) and every real \(p\ge1\). It proves the convergent trace expansion before the coefficient comparison in Section A.7. Section A.8 applies to every partition and every \(R_*\ge16\). Its finite set of local coupling types gives one function \(\omega_n\) for all block sites and block sizes. Section A.9 proves the covariance bounds at every state and their estimates at separated states. The cycle matrices in Section A.7 prove only the local coefficient identities on the line.</p>
+<h4 id="a11-the-one-label-case">A.11. The one-label case</h4>
+<p>For \(n=1\), every site is already in \(S_1\), so both absorption times are zero and both potentials vanish. There are no interaction jumps. Therefore \(P=P_d=\operatorname{Id}\), \(Q=T_d=R\), and \(B=0\), for every \(d&gt;0\), in particular \(0&lt;d\le d_1=1\). A chamber-affine function is simply \(f(x)=ax+b\), with \(|a|\le D\), and \(Rf=0\). Its canonical correction is zero. The coordinate has jumps plus and minus one at rate one. Its covariance density is two. Its square maximal displacement is at most \(8t\). Its trace jump moment is \(2|a|^p\le2D^p\). Set \(\omega_1=0\). The near set and every split sum are empty. An initiating step has displacement one and is already in \(S_1\), with \(J=\tau_d=0\). These facts prove the full convention in the statement and the singleton-block facts used in Section A.8.</p>
+<h3 id="b-sampling-and-positive-layer-occupation">B. Sampling and positive-layer occupation</h3>
+<p>Fix \(L\ge3\), \(q&gt;0\), and \(d&gt;0\).
+For each population size \(a\ge1\), let
+\[
+G_a=q(R_a+d^{-1}I_a)
+\]
+on \(\mathbb T_L^a\), with the operators of Section 1.1.
+Each label jumps independently to each neighbor at rate \(q\), and onto each adjacent label at rate \(q/d\).
+The same parameters \(L,q,d\) are used at every population size.
+For \(L=3\), the two neighbors are distinct and each directed label-pair jump occurs once.
+All these chains have finite state spaces.</p>
+<h4 id="b1-uniform-sampling">B.1. Uniform sampling</h4>
+<p>For \(1\le m\le a\) and symmetric \(f:\mathbb T_L^m\to\mathbb R\), define
+\[
+D_{a,m}f(z)=\binom am^{-1}
+\sum_{\substack{S\subseteq\{1,\ldots,a\}\\|S|=m}}f(z_S).
+\tag{B.1.1}
+\]
+The order used to list \(z_S\) does not affect this definition.
+Write \(P_t^{[a]}\) for the semigroup with generator \(G_a\).
+Let \(\Omega_a=\{\eta\in\mathbb N_0^{\mathbb T_L}:\sum_x\eta_x=a\}\).</p>
+<p><strong>Lemma B.1 (sampling identity).</strong> For every symmetric \(f\),
+\[
+G_aD_{a,m}f=D_{a,m}G_mf,
+\qquad
+P_t^{[a]}D_{a,m}f=D_{a,m}P_t^{[m]}f.
+\tag{B.1.2}
+\]
+In occupation coordinates, the same operator is
+\[
+D_{a,m}f(\eta)=\binom am^{-1}
+\sum_{k\in\Omega_m}
+\prod_x\binom{\eta_x}{k_x}f(k),
+\qquad \eta\in\Omega_a.
+\tag{B.1.3}
+\]
+Here symmetric tuple functions are identified with occupation functions.
+The operator is an averaging contraction.</p>
+<p><em>Proof.</em> Independent jumps act on each selected coordinate at rate \(q\), and give \(D_{a,m}(qR_mf)\).
+For the interaction part, fix adjacent labels \(i,j\).
+Their two jumps onto each other have the same rate \(q/d\).
+Samples containing neither label contribute zero.
+Samples containing both give exactly the interaction part of \(D_{a,m}G_mf\).
+If \(S\) contains \(i\) but not \(j\), pair it with
+\[
+S&#x27;=(S\setminus\{i\})\cup\{j\}.
+\]
+The jump of \(i\) onto \(j\) changes \(f(z_S)\) by \(f(z_{S&#x27;})-f(z_S)\).
+The reverse jump changes \(f(z_{S&#x27;})\) by the negative of this value.
+These equal-rate terms cancel.
+Summing over adjacent unordered label pairs proves the generator identity.</p>
+<p>The generators preserve symmetry because their rates are invariant under label permutations.
+Iteration of the identity and the finite matrix exponential give the semigroup identity.
+There are \(\prod_x\binom{\eta_x}{k_x}\) subsets with sampled occupation \(k\).
+This proves (B.1.3), and the weights sum to \(\binom am\).
+Thus \(D_{a,m}\) is an averaging contraction.
+Finally, summing labelled rates at each source site gives the occupation generator
+\[
+\widehat G_aF(\eta)=\frac qd\sum_{x:\eta_x&gt;0}\sum_{y=x\pm1}
+\eta_x(d+\eta_y)
+[F(\eta-\delta_x+\delta_y)-F(\eta)].
+\tag{B.1.4}
+\]
+Hence the same identities hold for the occupation semigroups.
+The argument concerns the average over all samples; it requires no autonomous dynamics for a fixed set of labels.</p>
+<h4 id="b2-conditional-occupation-estimate">B.2. Conditional occupation estimate</h4>
+<p>For \(x,y\in\mathbb T_L\), let
+\(\operatorname{dist}_L(x,y)=\min\{r,L-r\}\), where \(r\in\{0,\ldots,L-1\}\) represents \(y-x\).
+For \(n\ge2\) and an integer \(1\le k&lt;L/2\), put
+\[
+B_k(z)=\sum_{1\le i&lt;j\le n}
+\mathbf1_{\{0&lt;\operatorname{dist}_L(z_i,z_j)\le k\}}.
+\]
+Pairs at equal sites are excluded.</p>
+<p><strong>Proposition B.2 (conditional occupation estimate).</strong> Let \(Z\) have generator \(G_n\), with any deterministic initial state or initial distribution.
+Use its completed right-continuous natural filtration \((\mathcal F_t)\).
+For every deterministic \(\delta\ge0\) and bounded nonnegative stopping times \(\tau,\sigma\) such that \(\tau\le\sigma\le\tau+\delta\) almost surely,
+\[
+\mathbb E\left[\int_\tau^\sigma B_k(Z_s)\,ds
+\;\middle|\;\mathcal F_\tau\right]
+\le\binom n2\left[\frac{2k\delta}{L+1/d}+\frac{Lk}{q}\right]
+\quad\text{almost surely}.
+\tag{B.2.1}
+\]
+The bound is uniform over all these parameters, initial laws, and stopping times.</p>
+<h4 id="b3-a-finite-pair-poisson-equation">B.3. A finite pair Poisson equation</h4>
+<p><em>Proof of Proposition B.2.</em> For two labels, the difference \(r=z_2-z_1\in\mathbb T_L\) has generator
+\[
+\begin{aligned}
+\mathcal Hv(r)={}&amp;2q[v(r+1)+v(r-1)-2v(r)]\\
+&amp;+\frac{2q}{d}\mathbf1_{\{r=1\}}[v(0)-v(1)]
++\frac{2q}{d}\mathbf1_{\{r=-1\}}[v(0)-v(-1)].
+\end{aligned}
+\tag{B.3.1}
+\]
+Indeed, two independent jumps increase the difference, and two decrease it.
+At distance one, either label can jump onto the other.
+For \(L=3\), the rates from \(r=1\) are \(2q(1+1/d)\) to zero and \(2q\) to \(r=2\); there is no extra collision jump between the two nonzero residues.</p>
+<p>Use representatives \(r=0,\ldots,L-1\), with all subscripts modulo \(L\), and set
+\[
+m_r=1+d^{-1}\mathbf1_{\{r=0\}},
+\qquad
+a_r=1+d^{-1}\mathbf1_{\{r=0\text{ or }r=L-1\}}.
+\]
+The coefficient \(a_r\) belongs to the edge from \(r\) to \(r+1\).
+Direct comparison with (B.3.1) gives
+\[
+\mathcal Hv(r)=\frac{2q}{m_r}
+\left[a_r(v(r+1)-v(r))-a_{r-1}(v(r)-v(r-1))\right].
+\tag{B.3.2}
+\]
+The two edges incident to zero are distinct for every \(L\ge3\), so this formula includes \(L=3\).</p>
+<p>Put
+\[
+b(r)=\mathbf1_{\{0&lt;\operatorname{dist}_L(r,0)\le k\}},
+\qquad \beta=\frac{2k}{L+1/d},
+\qquad g_r=m_r(b(r)-\beta).
+\]
+The layer has exactly \(2k\) nonzero residues.
+Thus \(0&lt;\beta&lt;1\), \(\sum_rg_r=0\), and
+\(\sum_r(g_r)^+=2k(1-\beta)\le2k\).
+Define
+\[
+S_r=\frac1{2q}\sum_{j=0}^rg_j,
+\qquad
+\overline S=\frac{\sum_rS_r/a_r}{\sum_r1/a_r},
+\qquad J_r=S_r-\overline S.
+\]
+Every difference of two partial sums is a signed sum over an interval.
+The total positive and negative sums both have absolute value at most \(2k\).
+It follows that \(\max S-\min S\le k/q\).
+The weighted mean \(\overline S\) lies within this range, so
+\[
+|J_r|\le k/q,
+\qquad \sum_rJ_r/a_r=0,
+\qquad J_r-J_{r-1}=g_r/(2q).
+\tag{B.3.3}
+\]
+The last identity also holds at zero because \(S_{L-1}=0\).
+Prescribe \(v(0)=0\) and
+\[
+v(r+1)-v(r)=J_r/a_r.
+\]
+The zero sum makes \(v\) periodic.
+Equations (B.3.2)–(B.3.3), and \(a_r\ge1\), give
+\[
+\mathcal Hv=b-\beta,
+\qquad
+\operatorname{osc}(v):=\max v-\min v\le Lk/q.
+\tag{B.3.4}
+\]
+The operator \(\mathcal H\) commutes with reflection and \(b\) is even.
+Replacing \(v(r)\) by \((v(r)+v(-r))/2\) therefore preserves the equation and the oscillation bound.
+Use this even \(v\) below.</p>
+<h4 id="b4-conditional-dynkin-formula">B.4. Conditional Dynkin formula</h4>
+<p>The function \(f_v(z_1,z_2)=v(z_2-z_1)\) is symmetric.
+Equation (B.3.1) gives \(G_2f_v(z)=\mathcal Hv(z_2-z_1)\).
+Lemma B.1 gives
+\[
+V(z):=D_{n,2}f_v(z)=\binom n2^{-1}\sum_{i&lt;j}v(z_j-z_i),
+\]
+\[
+G_nV=\binom n2^{-1}B_k-\beta,
+\qquad \operatorname{osc}(V)\le Lk/q.
+\tag{B.4.1}
+\]
+On the finite state space, \(V\) and \(G_nV\) are bounded.
+Its Dynkin martingale is bounded on each deterministic finite time interval.
+Conditional optional sampling at the stated bounded stopping times yields
+\[
+\mathbb E\left[\int_\tau^\sigma G_nV(Z_s)\,ds\mid\mathcal F_\tau\right]
+=\mathbb E[V(Z_\sigma)-V(Z_\tau)\mid\mathcal F_\tau].
+\]
+Insert (B.4.1), use \(\sigma-\tau\le\delta\), and obtain
+\[
+\begin{aligned}
+\binom n2^{-1}
+\mathbb E\left[\int_\tau^\sigma B_k(Z_s)\,ds\mid\mathcal F_\tau\right]
+&amp;=\beta\mathbb E[\sigma-\tau\mid\mathcal F_\tau]
++\mathbb E[V(Z_\sigma)-V(Z_\tau)\mid\mathcal F_\tau]\\
+&amp;\le\beta\delta+\operatorname{osc}(V)\\
+&amp;\le\frac{2k\delta}{L+1/d}+\frac{Lk}{q}.
+\end{aligned}
+\]
+Multiplication by \(\binom n2\) proves (B.2.1).</p>
+<h3 id="c-from-semigroups-to-path-laws">C. From semigroups to path laws</h3>
+<p><strong>Theorem C.1 (uniform semigroup transfer).</strong> Let \((E,d)\) be a compact metric space. Let \((P_t)_{t\ge0}\) be a conservative, strongly continuous Feller semigroup on \(C(E)\). For each \(N\), let \(Z_N\) be a continuous-time Markov chain on a finite set \(S_N\), with generator \(A_N\) and semigroup \(T_N(t)\). Let \(\pi_N:S_N\to E\), and set \(X_N=\pi_N(Z_N)\). Assume that, for every real \(g\in C(E)\) and finite \(T\),
+\[
+\epsilon_N(g,T):=
+\sup_{0\le t\le T}\sup_{z\in S_N}
+\left|T_N(t)(g\circ\pi_N)(z)-(P_tg)(\pi_N(z))\right|
+\longrightarrow0.
+\tag{C.1}
+\]
+Assume also that
+\[
+j_N:=\sup_{\substack{z,w\in S_N\\A_N(z,w)&gt;0}}
+d(\pi_N(z),\pi_N(w))\longrightarrow0.
+\tag{C.2}
+\]
+Set the empty supremum to zero. For every deterministic sequence \(z_N\in S_N\) with \(\pi_N(z_N)\to x\), the laws of \(X_N\) converge in \(D([0,\infty),E)\) with the Skorokhod \(J_1\) topology. The limit has continuous paths. Its finite-dimensional distributions are those given by the initial point \(x\) and \((P_t)\). The projection \(X_N\) need not be Markov in its projected state.</p>
+<p><em>Proof.</em> Fix a real \(g\in C(E)\). Let \(\tau\) be a bounded stopping time for the microscopic chain, and let \(0\le h\le\delta\le1\) be deterministic. Its strong Markov property gives
+\[
+\begin{aligned}
+&amp;\mathbb E\left[(g(X_N(\tau+h))-g(X_N(\tau)))^2
+\;\middle|\;\mathcal F_\tau\right]\\
+&amp;\quad\le \|P_hg^2-g^2\|_\infty
++2\|g\|_\infty\|P_hg-g\|_\infty\\
+&amp;\qquad\quad+\epsilon_N(g^2,1)
++2\|g\|_\infty\epsilon_N(g,1).
+\end{aligned}
+\tag{C.3}
+\]
+Indeed, expand the square. Its conditional expectation is
+\[
+T_N(h)(g^2\circ\pi_N)(Z_N(\tau))
+-2g(X_N(\tau))T_N(h)(g\circ\pi_N)(Z_N(\tau))
++g(X_N(\tau))^2.
+\]
+Insert (C.1) into its first two terms. Strong continuity makes the bound in (C.3) tend to zero, uniformly for \(h\le\delta\), when first \(N\to\infty\) and then \(\delta\downarrow0\).</p>
+<p>Choose a countable separating family \((g_j)\subset C(E)\). For each \(\varepsilon&gt;0\), compactness of \(\{(x,y):d(x,y)\ge\varepsilon\}\) gives a finite \(J\) and \(b&gt;0\) such that
+\[
+d(x,y)\ge\varepsilon
+\quad\Longrightarrow\quad
+\max_{j\le J}|g_j(x)-g_j(y)|\ge b.
+\]
+Apply (C.3) to these finitely many tests. Markov's inequality gives Aldous' stopping-time condition for the metric \(d\). Compactness gives compact containment. Thus the path laws are tight on each finite horizon. The deterministic-lag form used here is stated in Aldous, <a href="https://www.stat.berkeley.edu/~aldous/Papers/weak-gtp.pdf"><em>Weak Convergence and the General Theory of Processes</em>, Section 4, condition (4.2), Theorem (4.4)(ii), pages 25–26</a>. The paragraph after that theorem gives the extension to Polish state spaces.</p>
+<p>Every limit is continuous. Under \(J_1\) convergence, time changes give uniform approximation on suitable finite horizons. This also bounds the left limits. A jump of the limit is at most \(j_N\) plus twice the uniform error. Equation (C.2) therefore excludes limit jumps.</p>
+<p>To identify the law, fix \(0\le t_1&lt;\cdots&lt;t_r\) and continuous tests \(g_1,\ldots,g_r\). Define the target recursion by
+\[
+H_r=g_r,\qquad
+H_j=g_jP_{t_{j+1}-t_j}H_{j+1}
+\quad(j=r-1,\ldots,1).
+\]
+Each \(H_j\) is continuous by the Feller property. Repeated microscopic conditioning, starting at \(t_r\), and (C.1) show
+\[
+\mathbb E_{z_N}\prod_{j=1}^r g_j(X_N(t_j))
+\longrightarrow(P_{t_1}H_1)(x).
+\tag{C.4}
+\]
+At each step the transition is replaced by its target transition with a uniform error tending to zero. Multiplication by a fixed bounded test and contraction of the transition operators preserve this error bound. Continuity handles the convergent initial states.</p>
+<p>Every subsequential limit is continuous, so evaluation at each fixed time preserves convergence along that subsequence. Products of continuous tests determine every finite-dimensional law. A continuous-path law is determined by these laws at a countable dense set of times. Thus all subsequential limits agree, and the whole sequence converges. This proves the theorem.</p>
+<p>The argument also constructs a continuous realization of \((P_t)\) at every point that is a limit of projected initial states. It does not require target path continuity as an extra hypothesis.</p>
+<p>The conclusion also holds for random initial states when \(\pi_N(Z_N(0))\) converges in law to the deterministic point \(x\). The tightness estimate (C.3) is uniform over the initial law. Before passing to the limit in (C.4), microscopic conditioning gives \(\mathbb E[(P_{t_1}H_1)(X_N(0))]+o(1)\), with a uniform error. This tends to \((P_{t_1}H_1)(x)\) by bounded continuity. The remaining identification is unchanged.</p>
+<h3 id="references-and-standard-results">References and standard results</h3>
+<p>The motivating paper is S. Kim and C. Landim, <em>Convergence of the Condensing Symmetric Inclusion Process on the Torus in the Thermodynamical Limit to Coalescing Brownian Motions</em>, arXiv:2605.00542v1 (2026), Section 1. <a href="https://arxiv.org/html/2605.00542v1">Versioned paper</a>.</p>
+<p>Section 4 uses the following continuum construction and uniqueness results, with the normalization derived there.</p>
+<ul>
+<li>Y. Le Jan and O. Raimond, <em>Sticky flows on the circle</em>, arXiv:math/0211387v1, Sections 2–3, equation (3.6), Theorem 3.3. The exact partition weights, core closure, compatibility, and strong Feller construction are used. <a href="https://arxiv.org/pdf/math/0211387v1">Versioned PDF</a>.</li>
+<li>C. Howitt and J. Warren, <em>Consistent families of Brownian motions and stochastic flows of kernels</em>, <em>Annals of Probability</em> 37 (2009), 1237–1272, arXiv:math/0611292v2, Definition 2.1, equations (2.7),(2.9), Theorem 2.1, Proposition 8.1. Only the real continuum martingale problem, its uniqueness for the checked parameter family, and its Feller laws are used. <a href="https://arxiv.org/pdf/math/0611292v2">Versioned PDF</a>.</li>
+</ul>
+<p>The target construction is also described in Y. Le Jan and S. Lemaire, <a href="https://arxiv.org/abs/math/0307106"><em>Products of Beta matrices and sticky flows</em></a>, arXiv:math/0307106.</p>
+<p>The tightness criterion is D. Aldous, <em>Stopping Times and Tightness</em>, <em>Annals of Probability</em> 6 (1978), 335–340, <a href="https://doi.org/10.1214/aop/1176995579">DOI</a>. Its deterministic-lag form and Polish-space extension are stated in Aldous, <a href="https://www.stat.berkeley.edu/~aldous/Papers/weak-gtp.pdf"><em>Weak Convergence and the General Theory of Processes</em>, Section 4, condition (4.2), Theorem (4.4)(ii), pages 25–26</a>. Compact containment and the stopping-time increment bounds in Section 2 and Appendix C verify its hypotheses.</p>
+<p>The remaining background is finite-state generator martingales, the strong Markov property, Dynkin's formula, optional sampling, Doob's inequality, conditional Fubini, Prokhorov and Skorokhod representation on Polish spaces, quadratic covariation, dominated convergence, the monotone-class theorem, Stone–Weierstrass, and closed symmetric forms. The model-specific estimates and the identification of the exact target are proved above.</p>
+</article>
+<hr>
+<p><a href="../provenance/">Source record</a> · <a href="../records/">Proof files</a></p>
+      </main>
+    </div>
+  </body>
+</html>

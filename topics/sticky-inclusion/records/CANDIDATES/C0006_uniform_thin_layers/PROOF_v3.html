@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>C0006 uniform positive thin-layer occupation — proof v3 · Raw · Sticky Inclusion · Condensation and Inclusion</title>
+    <link rel="stylesheet" href="../../../../../assets/style.css">
+    <script>
+      window.MathJax = {
+        tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+          processEscapes: true, tags: 'ams' }
+      };
+    </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml-full.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Condensation and Inclusion</h1>
+        <nav class="menu" aria-label="Main">
+        <a href="../../../../../">Home</a>
+        <span class="sep" aria-hidden="true">·</span>
+        <a href="../../../../" aria-current="location">Topics</a>
+        <span class="sep" aria-hidden="true">·</span>
+        <a href="../../../../../literature/">Literature</a>
+      </nav>
+      </header>
+      <hr>
+      <main>
+      <h2>Sticky Inclusion</h2>
+      <nav class="menu" aria-label="Topic">
+        <a href="../../../">Overview</a>
+        <span class="sep" aria-hidden="true">·</span>
+        <a href="../../../digested/">Digested</a>
+        <span class="sep" aria-hidden="true">·</span>
+        <a href="../../../raw/" aria-current="location">Raw</a>
+      </nav>
+      <hr>
+<p class="ai-note"><strong>Fixed source record.</strong> Creation-time labels remain unchanged. No human or outside-family model audit is recorded.</p><details><summary>Contents</summary><div class="toc">
+<ul>
+<li><a href="#1-the-two-particle-difference-and-the-three-site-convention">1. The two-particle difference and the three-site convention</a></li>
+<li><a href="#2-construction-and-bound-for-a-finite-pair-poisson-equation">2. Construction and bound for a finite pair Poisson equation</a></li>
+<li><a href="#3-the-exact-averaged-factorial-identity">3. The exact averaged factorial identity</a></li>
+<li><a href="#4-conditional-dynkin-at-the-prescribed-stopping-times">4. Conditional Dynkin at the prescribed stopping times</a></li>
+</ul>
+</div>
+</details><h3 id="c0006-uniform-positive-thin-layer-occupation-proof-v3">C0006 uniform positive thin-layer occupation — proof v3</h3>
+<p>Status: candidate. This is an author-produced standalone proof of CONTRACT-v2. Version 3 updates the contract pointer after the proof-strategy requirement was removed from the contract; the conditional inequality and this proof's mathematics are unchanged. Version 2 corrected one explanatory derivative-sign phrase in Section 3. Both earlier proof versions are preserved. No independent-search, verifier, or promotion claim is made. The proof uses no promoted campaign premise. Its source provenance is disclosed in AUTHOR_INPUTS-v1; every mathematical ingredient needed below is derived here.</p>
+<p>Fix arbitrary parameters and stopping times satisfying the contract. We retain its notation \(L,n,q,d,k,\delta,G_n,R_n,I_n,B_k\) and \(\operatorname{dist}_L\). No limit or relationship between \(q\) and \(n\) will be used.</p>
+<h3 id="1-the-two-particle-difference-and-the-three-site-convention">1. The two-particle difference and the three-site convention</h3>
+<p>First set the particle number equal to two, retaining the same \(L,q,d\), and let
+\[
+r=z_2-z_1\in\mathbb T_L.
+\]
+Two independent moves increase \(r\) by one and two decrease it by one, each move having rate \(q\). If \(r=1\), either label can jump onto the other label, with additional rate \(q/d\), and both such jumps send \(r\) to zero. If \(r=-1\), the same description holds with the direction reversed. There is no interaction jump at equality.</p>
+<p>Consequently, for a function \(v:\mathbb T_L\to\mathbb R\), the difference generator is
+\[
+\begin{aligned}
+\mathcal H v(r)={}&amp;
+2q[v(r+1)+v(r-1)-2v(r)]\\
+&amp;+\frac{2q}{d}\mathbf 1_{\{r=1\}}[v(0)-v(1)]
++\frac{2q}{d}\mathbf 1_{\{r=-1\}}[v(0)-v(-1)].
+\end{aligned}
+\tag{1.1}
+\]
+For \(L\ge3\), the residues \(1\) and \(-1\) are distinct. In particular, when \(L=3\), a state \(r=1\) has rate \(2q(1+1/d)\) to zero and rate \(2q\) to \(r=2\), and the analogous statement holds at \(r=2=-1\). The transition between \(1\) and \(2\) is not an extra collision transition. At zero the rates to \(1\) and \(2\) are each \(2q\).</p>
+<p>Use representatives \(r=0,\ldots,L-1\), with all subscripts interpreted modulo \(L\). Define positive vertex weights and positive edge coefficients by
+\[
+m_r=
+\begin{cases}
+1+1/d,&amp;r=0,\\
+1,&amp;r\ne0,
+\end{cases}
+\qquad
+a_r=
+\begin{cases}
+1+1/d,&amp;r=0\text{ or }r=L-1,\\
+1,&amp;\text{otherwise}.
+\end{cases}
+\tag{1.2}
+\]
+The coefficient \(a_r\) belongs to the edge joining \(r\) to \(r+1\). Comparing each term with (1.1) proves the identity
+\[
+\mathcal H v(r)
+=\frac{2q}{m_r}
+\left[a_r(v(r+1)-v(r))
+-a_{r-1}(v(r)-v(r-1))\right].
+\tag{1.3}
+\]
+At zero the two ratios \(a_r/m_r\) are one; at \(1\) and \(-1\) the inward ratio is \(1+1/d\); all other ratios are one. For \(L=3\) the two edges incident to zero are distinct and the remaining edge has coefficient one, so (1.3) includes that case exactly. The weights in (1.2) are used only in this finite algebraic identity, not as an assumption on the law of the process.</p>
+<h3 id="2-construction-and-bound-for-a-finite-pair-poisson-equation">2. Construction and bound for a finite pair Poisson equation</h3>
+<p>Define
+\[
+b(r)=\mathbf 1_{\{0&lt;\operatorname{dist}_L(r,0)\le k\}},
+\qquad
+\beta=\frac{2k}{L+1/d},
+\qquad
+g_r=m_r(b(r)-\beta).
+\tag{2.1}
+\]
+The condition \(k&lt;L/2\) means that the layer contains exactly the \(2k\) distinct nonzero residues represented by \(1,\ldots,k\) and \(L-k,\ldots,L-1\). Also \(2k&lt;L&lt;L+1/d\), so \(0&lt;\beta&lt;1\). It follows that
+\[
+\sum_{r=0}^{L-1}g_r=2k-\beta(L+1/d)=0,
+\qquad
+\sum_{r=0}^{L-1}(g_r)^+=2k(1-\beta)\le2k,
+\tag{2.2}
+\]
+where \(a^+=\max\{a,0\}\). In particular \(g_0=-m_0\beta\); equality is not included in the positive layer.</p>
+<p>For \(r=0,\ldots,L-1\), put
+\[
+S_r=\frac1{2q}\sum_{j=0}^r g_j.
+\]
+Then \(S_{L-1}=0\), so the cyclic identity
+\[
+S_r-S_{r-1}=g_r/(2q)
+\tag{2.3}
+\]
+also holds at \(r=0\). Every difference of two \(S_r\)'s is a signed sum of \(g_j/(2q)\) over an interval. A positive such sum is at most the total positive sum in (2.2); its negative is at most the total negative sum in absolute value, which is the same because the full sum is zero. Therefore
+\[
+\max_rS_r-\min_rS_r\le k/q.
+\tag{2.4}
+\]</p>
+<p>Let
+\[
+\overline S=
+\frac{\sum_{r=0}^{L-1}S_r/a_r}{\sum_{r=0}^{L-1}1/a_r},
+\qquad J_r=S_r-\overline S.
+\]
+All the weights \(1/a_r\) are positive. Hence \(\overline S\) lies between the minimum and maximum of the \(S_r\)'s. Equations (2.3)–(2.4) give
+\[
+J_r-J_{r-1}=g_r/(2q),
+\qquad
+\sum_{r=0}^{L-1}J_r/a_r=0,
+\qquad
+|J_r|\le k/q.
+\tag{2.5}
+\]</p>
+<p>Set \(v(0)=0\) and prescribe the increments
+\[
+v(r+1)-v(r)=J_r/a_r.
+\tag{2.6}
+\]
+The zero sum in (2.5) makes this prescription periodic, and hence defines a function on \(\mathbb T_L\). Substituting (2.5)–(2.6) into (1.3) proves
+\[
+\mathcal H v=b-\beta.
+\tag{2.7}
+\]
+Since every \(a_r\ge1\), each increment in (2.6) has absolute value at most \(k/q\). Traveling along at most \(L\) edges between any two residues gives
+\[
+\operatorname{osc}(v):=\max_rv(r)-\min_rv(r)\le Lk/q.
+\tag{2.8}
+\]</p>
+<p>The operator (1.1) commutes with reflection \(r\mapsto-r\), and \(b\) is even. Thus replacing \(v(r)\) by \((v(r)+v(-r))/2\) preserves (2.7). Every new value remains between the old minimum and maximum, so it preserves (2.8) as an upper bound. From now on use this even \(v\). No uniqueness assertion for the Poisson equation is needed.</p>
+<h3 id="3-the-exact-averaged-factorial-identity">3. The exact averaged factorial identity</h3>
+<p>This section proves the averaging identity within the present candidate. Specified physical labels are not assumed to have autonomous projected dynamics.</p>
+<p>For any population size \(a\ge1\), define its occupation space
+\[
+\Omega_a=\left\{\eta\in\mathbb N_0^{\mathbb T_L}:
+\sum_x\eta_x=a\right\}.
+\]
+The occupation map of a labelled tuple is
+\[
+\eta_x(z)=\sum_{i=1}^a\mathbf 1_{\{z_i=x\}}.
+\]
+For a function \(f:\Omega_a\to\mathbb R\), summing the labelled jump rates of all particles at the source gives
+\[
+\widehat G_a f(\eta)
+=\frac qd\sum_{x\in\mathbb T_L}\sum_{y=x\pm1}
+\eta_x(d+\eta_y)
+[f(\eta-\delta_x+\delta_y)-f(\eta)].
+\tag{3.1}
+\]
+Moreover \(G_a(f\circ\eta)=(\widehat G_af)\circ\eta\), directly from the same sum. A coordinate vector \(\delta_x\) in this section has one at site \(x\) and zero elsewhere.</p>
+<p>For \(\xi\in\Omega_2\) and \(\eta\in\Omega_n\), put
+\[
+W_\xi(\eta)=\prod_x\binom{\eta_x}{\xi_x},
+\qquad
+D_{n,2}f(\eta)=\binom n2^{-1}\sum_{\xi\in\Omega_2}W_\xi(\eta)f(\xi).
+\tag{3.2}
+\]
+The binomial convention is \(\binom ab=0\) for integers \(a\ge0\) and \(b&gt;a\), and \(\binom a0=1\). Expressions with a negative component of \(\xi\) are omitted. Choosing two of the \(n\) physical indices according to their sites, or taking the degree-two coefficient of
+\[
+\prod_x(1+t)^{\eta_x}=(1+t)^n,
+\]
+proves \(\sum_{\xi\in\Omega_2}W_\xi(\eta)=\binom n2\).</p>
+<p>We claim that for every real \(f\) on \(\Omega_2\),
+\[
+\widehat G_nD_{n,2}f=D_{n,2}\widehat G_2f.
+\tag{3.3}
+\]
+To prove this, first consider one undirected edge \(\{x,y\}\) and write \(\eta_x=A,\eta_y=B\). Let \(\mathcal L^{xy}\) denote its two unscaled rates \(A(d+B)\) and \(B(d+A)\). With formal variables \(u,v\), set
+\[
+J(u,v)=(1+u)^A(1+v)^B.
+\]
+The increment from \(x\) to \(y\) is
+\((v-u)(1+u)^{A-1}(1+v)^B\), multiplied by \(A(d+B)\); the reverse increment has \(u-v\) and the exponents interchanged. If a departure population is zero its whole contribution is zero. Separating the terms involving \(d\) from those involving \(AB\) yields the polynomial identity
+\[
+\mathcal L^{xy}J
+=d(v-u)(\partial_u-\partial_v)J
++(v-u)^2\partial_u\partial_vJ.
+\tag{3.4}
+\]
+For the mixed term, the two expressions with factor \(AB\) combine to
+\(AB(v-u)^2(1+u)^{A-1}(1+v)^{B-1}\), which is the second term of (3.4).</p>
+<p>For \(\xi_x=r,\xi_y=s\), extract the coefficient of \(u^rv^s\), retaining the binomial factors at all other sites. The derivative terms produce respectively the two index shifts and the unshifted coefficients. Explicitly the result is
+\[
+\begin{aligned}
+\mathcal L^{xy}W_\xi={}&amp;
+(r+1)(d+s-1)W_{\xi+\delta_x-\delta_y}\\
+&amp;+(s+1)(d+r-1)W_{\xi-\delta_x+\delta_y}\\
+&amp;-[r(d+s)+s(d+r)]W_\xi.
+\end{aligned}
+\tag{3.5}
+\]
+For example, the \(dv\partial_u\) contribution to the first shifted term is \(d(r+1)\), and the \(v^2\partial_u\partial_v\) contribution is \((r+1)(s-1)\), giving its displayed coefficient. The other shifted coefficient is obtained from the positive term \(du\partial_v\) in the expansion of \(d(v-u)(\partial_u-\partial_v)\), and from \(u^2\partial_u\partial_v\). The unshifted contributions are \(-d(r+s)-2rs\). When \(s=0\) the first shifted term is absent, and when \(r=0\) the second is absent; no negative-index binomial is evaluated.</p>
+<p>Multiply (3.5) by \(f(\xi)\), and sum over \(\Omega_2\). In the first shifted sum set \(\ell=\xi+\delta_x-\delta_y\). Its coefficient becomes \(\ell_x(d+\ell_y)\), and its test becomes \(f(\ell-\delta_x+\delta_y)\). The omitted-index convention is equivalent to the departure restriction \(\ell_x\ge1\). In the second shifted sum the coefficient and test become \(\ell_y(d+\ell_x)\) and \(f(\ell+\delta_x-\delta_y)\). The diagonal terms give the two corresponding negative terms. This is precisely the two-edge generator acting on \(f\), averaged with weights \(W_\ell(\eta)\).</p>
+<p>For \(L\ge3\), the collection
+\[
+\mathcal E_L=\{\{x,x+1\}:x\in\mathbb T_L\}
+\]
+consists of \(L\) distinct undirected edges. Its two orientations reproduce each of the \(2L\) directed nearest-neighbor edges in (3.1) once. In particular \(L=3\) gives three undirected edges and six directed ones. Summing the preceding edge identity, multiplying by the common factor \(q/d\), and dividing by \(\binom n2\) proves (3.3). The sampling order does not change \(q\).</p>
+<p>Because \(v\) is even, the two-particle tuple function
+\[
+f_v(z_1,z_2)=v(z_2-z_1)
+\]
+is symmetric, so it defines an occupation function \(f_v:\Omega_2\to\mathbb R\). Equation (1.1) says that \(\widehat G_2f_v\), evaluated on the occupation of \((z_1,z_2)\), is \(\mathcal Hv(z_2-z_1)\). There are exactly \(W_\xi(\eta(z))\) unordered pairs of distinct physical indices whose sampled occupation is \(\xi\). Hence (3.2) gives
+\[
+V(z):=D_{n,2}f_v(\eta(z))
+=\binom n2^{-1}\sum_{1\le i&lt;j\le n}v(z_j-z_i).
+\tag{3.6}
+\]
+Combining (3.1), (3.3), (3.6), and (2.7) proves the exact labelled-generator identity
+\[
+G_nV(z)
+=\binom n2^{-1}\sum_{i&lt;j}\mathcal Hv(z_j-z_i)
+=\binom n2^{-1}B_k(z)-\beta.
+\tag{3.7}
+\]
+This is an identity for the average over all physical index pairs. It does not assert an intertwining for the projection onto any fixed two labels. For example the rate at which one selected label moves to a neighboring site is \(q(1+\eta_y/d)\), which depends on unselected labels at that site. The cancellation needed in (3.7) is exactly the coefficient-and-reindexing argument above.</p>
+<p>Finally every summand of (3.6) lies between \(\min v\) and \(\max v\). Thus
+\[
+\operatorname{osc}(V)\le\operatorname{osc}(v)\le Lk/q.
+\tag{3.8}
+\]</p>
+<h3 id="4-conditional-dynkin-at-the-prescribed-stopping-times">4. Conditional Dynkin at the prescribed stopping times</h3>
+<p>The labelled state space is finite. Its total jump rate is bounded by
+\[
+2qn+\frac qd n(n-1),
+\]
+because for \(L\ge3\) each ordered pair of distinct labels can contribute to at most one directed adjacency term. In particular the chain is nonexplosive. Both \(V\) and \(G_nV\) are bounded.</p>
+<p>For completeness the finite-state Markov property and differentiation of the finite matrix exponential imply, for deterministic \(s\le t\),
+\[
+\mathbb E[V(Z_t)-V(Z_s)\mid\mathcal F_s]
+=\mathbb E\left[\int_s^tG_nV(Z_u)\,du
+\;\middle|\;\mathcal F_s\right].
+\]
+One can see this by differentiating
+\(\mathbb E[V(Z_{s+r})\mid\mathcal F_s]=(e^{rG_n}V)(Z_s)\)
+in \(r\) and integrating; all sums are finite. Therefore
+\[
+M_t=V(Z_t)-V(Z_0)-\int_0^tG_nV(Z_s)\,ds
+\]
+is a martingale, also for the usual completed right-continuous natural filtration. On every deterministic bounded time interval it is bounded by a deterministic constant.</p>
+<p>Let a deterministic \(T\) bound both \(\tau\) and \(\sigma\). Approximate these stopping times from above by stopping times taking finitely many dyadic values, bounded by \(T+1\). For those times the conditional martingale identity follows by a finite sum of the deterministic-time identities. Right continuity of \(V(Z_t)\), continuity of the time integral, and the preceding boundedness permit dominated convergence, including after multiplication by each bounded \(\mathcal F_\tau\)-measurable random variable. This proves
+\[
+\mathbb E\left[\int_\tau^\sigma G_nV(Z_s)\,ds
+\;\middle|\;\mathcal F_\tau\right]
+=
+\mathbb E[V(Z_\sigma)-V(Z_\tau)\mid\mathcal F_\tau].
+\tag{4.1}
+\]
+No stopping-time independence is used.</p>
+<p>Insert (3.7) into (4.1), and use (3.8), \(\beta\ge0\), and \(\sigma-\tau\le\delta\). It follows that
+\[
+\begin{aligned}
+\binom n2^{-1}
+\mathbb E\left[\int_\tau^\sigma B_k(Z_s)\,ds
+\;\middle|\;\mathcal F_\tau\right]
+&amp;=\beta\,\mathbb E[\sigma-\tau\mid\mathcal F_\tau]
++\mathbb E[V(Z_\sigma)-V(Z_\tau)\mid\mathcal F_\tau]\\
+&amp;\le\beta\delta+\operatorname{osc}(V)\\
+&amp;\le\frac{2k\delta}{L+1/d}+\frac{Lk}{q}.
+\end{aligned}
+\]
+Multiplication by \(\binom n2\) proves the exact contract.</p>
+<p>Every bound used is independent of the starting state or its distribution. The proof applies to all the contract's finite parameter values, including \(L=3\), and counts only positive pair distances. There is no unproved assertion remaining within this lemma. This author statement is not an independent audit, and this finite lemma does not complete the full mass-convergence campaign.</p><hr><p><a href="../../../downloads/records/CANDIDATES/C0006_uniform_thin_layers/PROOF_v3.md" download>Markdown</a> · <a href="#" onclick="window.print(); return false">Print / save PDF</a></p>
+      </main>
+    </div>
+  </body>
+</html>

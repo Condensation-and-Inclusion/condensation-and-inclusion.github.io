@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>C0006 uniform positive thin-layer occupation — exact contract v1 · Raw · Sticky Inclusion · Condensation and Inclusion</title>
+    <link rel="stylesheet" href="../../../../../assets/style.css">
+    <script>
+      window.MathJax = {
+        tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+          processEscapes: true, tags: 'ams' }
+      };
+    </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml-full.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Condensation and Inclusion</h1>
+        <nav class="menu" aria-label="Main">
+        <a href="../../../../../">Home</a>
+        <span class="sep" aria-hidden="true">·</span>
+        <a href="../../../../" aria-current="location">Topics</a>
+        <span class="sep" aria-hidden="true">·</span>
+        <a href="../../../../../literature/">Literature</a>
+      </nav>
+      </header>
+      <hr>
+      <main>
+      <h2>Sticky Inclusion</h2>
+      <nav class="menu" aria-label="Topic">
+        <a href="../../../">Overview</a>
+        <span class="sep" aria-hidden="true">·</span>
+        <a href="../../../digested/">Digested</a>
+        <span class="sep" aria-hidden="true">·</span>
+        <a href="../../../raw/" aria-current="location">Raw</a>
+      </nav>
+      <hr>
+<p class="ai-note"><strong>Fixed source record.</strong> Creation-time labels remain unchanged. No human or outside-family model audit is recorded.</p><h3 id="c0006-uniform-positive-thin-layer-occupation-exact-contract-v1">C0006 uniform positive thin-layer occupation — exact contract v1</h3>
+<p>Status: candidate. This is a standalone finite-system lemma, not a claim of completion of STATEMENT-v1. No promoted campaign result is a premise.</p>
+<p>For every integer \(L\ge3\), let \(\mathbb T_L=\mathbb Z/(L\mathbb Z)\). For \(x,y\in\mathbb T_L\), define
+\[
+\operatorname{dist}_L(x,y)=\min\{r,L-r\},
+\]
+where \(r\in\{0,\ldots,L-1\}\) represents \(y-x\) modulo \(L\).</p>
+<p>For every integer \(n\ge2\), the labelled state space is \(\mathbb T_L^n\). If \(z=(z_1,\ldots,z_n)\), then \(z+\varepsilon e_i\) means adding \(\varepsilon\in\{-1,1\}\) to coordinate \(i\), modulo \(L\), leaving all other coordinates unchanged. On real functions \(F:\mathbb T_L^n\to\mathbb R\), define
+\[
+R_nF(z)=\sum_{i=1}^n\sum_{\varepsilon\in\{-1,1\}}
+[F(z+\varepsilon e_i)-F(z)]
+\]
+and
+\[
+I_nF(z)=\sum_{i=1}^n\sum_{\varepsilon\in\{-1,1\}}
+\sum_{\substack{j=1\\j\ne i}}^n
+\mathbf 1_{\{z_j=z_i+\varepsilon\}}
+[F(z+\varepsilon e_i)-F(z)].
+\]
+For every \(q&gt;0\) and \(d&gt;0\), let \(Z=(Z_t)_{t\ge0}\) be the continuous-time Markov chain with generator
+\[
+G_n=q(R_n+d^{-1}I_n).
+\]
+Thus each label has independent rate \(q\) to each of its two neighboring sites, plus rate \(q/d\) for each other label occupying the destination site. Both directions occur once; for \(L=3\) they are distinct. The parameters \(n\) and \(q\) are independent, with no scaling relation imposed.</p>
+<p>For every integer \(k\) with \(1\le k&lt;L/2\), define the positive-layer pair count
+\[
+B_k(z)=\sum_{1\le i&lt;j\le n}
+\mathbf 1_{\{0&lt;\operatorname{dist}_L(z_i,z_j)\le k\}}.
+\]
+Pairs at equal sites are excluded.</p>
+<p>For every deterministic initial state \(z\in\mathbb T_L^n\), and also for every initial distribution on that state space, equip the chain with its completed right-continuous natural filtration \((\mathcal F_t)_{t\ge0}\). For every deterministic real number \(\delta\ge0\) and every pair of bounded nonnegative stopping times \(\tau,\sigma\) satisfying
+\[
+\tau\le\sigma\le\tau+\delta\quad\hbox{almost surely},
+\]
+prove the conditional inequality
+\[
+\mathbb E\left[\int_\tau^\sigma B_k(Z_s)\,ds
+\;\middle|\;\mathcal F_\tau\right]
+\le
+\binom n2\left[
+\frac{2k\delta}{L+1/d}+\frac{Lk}{q}
+\right]
+\quad\hbox{almost surely}.
+\]</p>
+<p>The bound has exactly the displayed constants and is uniform over all the stated parameters, initial states or distributions, and stopping times. No equilibrium, separated-start, or autonomy assumption for selected physical labels is permitted.</p>
+<p>Required proof output: a complete finite pair Poisson-equation argument and an internally proved exact averaged factorial identity transferring its symmetric pair observable to the labelled \(n\)-particle generator, followed by the conditional stopping-time argument. Preserve the common rate parameter \(q\), the \(L=3\) edge multiplicity, and the exclusion of equality. There are no promoted dependencies, and no mathematical assertion from C0004 or the author's earlier R04 work may be used without proof inside this candidate.</p><hr><p><a href="../../../downloads/records/CANDIDATES/C0006_uniform_thin_layers/CONTRACT_v1.md" download>Markdown</a> · <a href="#" onclick="window.print(); return false">Print / save PDF</a></p>
+      </main>
+    </div>
+  </body>
+</html>

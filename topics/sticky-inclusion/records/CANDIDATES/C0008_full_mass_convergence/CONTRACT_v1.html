@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>C0008 full mass convergence — exact contract v1 · Raw · Sticky Inclusion · Condensation and Inclusion</title>
+    <link rel="stylesheet" href="../../../../../assets/style.css">
+    <script>
+      window.MathJax = {
+        tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+          processEscapes: true, tags: 'ams' }
+      };
+    </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml-full.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Condensation and Inclusion</h1>
+        <nav class="menu" aria-label="Main">
+        <a href="../../../../../">Home</a>
+        <span class="sep" aria-hidden="true">·</span>
+        <a href="../../../../" aria-current="location">Topics</a>
+        <span class="sep" aria-hidden="true">·</span>
+        <a href="../../../../../literature/">Literature</a>
+      </nav>
+      </header>
+      <hr>
+      <main>
+      <h2>Sticky Inclusion</h2>
+      <nav class="menu" aria-label="Topic">
+        <a href="../../../">Overview</a>
+        <span class="sep" aria-hidden="true">·</span>
+        <a href="../../../digested/">Digested</a>
+        <span class="sep" aria-hidden="true">·</span>
+        <a href="../../../raw/" aria-current="location">Raw</a>
+      </nav>
+      <hr>
+<p class="ai-note"><strong>Fixed source record.</strong> Creation-time labels remain unchanged. No human or outside-family model audit is recorded.</p><details><summary>Contents</summary><div class="toc">
+<ul>
+<li><a href="#microscopic-system">Microscopic system</a></li>
+<li><a href="#initial-conditions-and-quantifiers">Initial conditions and quantifiers</a></li>
+<li><a href="#exact-continuum-target">Exact continuum target</a></li>
+<li><a href="#exact-claim-to-prove-or-refute">Exact claim to prove or refute</a></li>
+<li><a href="#success-criteria-and-excluded-substitutes">Success criteria and excluded substitutes</a></li>
+<li><a href="#exact-promoted-dependencies">Exact promoted dependencies</a></li>
+</ul>
+</div>
+</details><h3 id="c0008-full-mass-convergence-exact-contract-v1">C0008 full mass convergence — exact contract v1</h3>
+<p>Status: candidate. Role: AUTHOR, assembly within the existing R01 route. This contract does not assert verification, promotion, or campaign completion.</p>
+<p>The claim submitted is exactly the frozen statement reproduced verbatim below. Its finite-stack initial quantifiers, full untraced mass-law conclusion, continuum target, time normalization, and excluded methods are unchanged. The proof is relative only to the exact promoted auxiliary contracts specified after the reproduced statement.</p>
+<p>--- BEGIN VERBATIM STATEMENT-v1 ---</p>
+<h3 id="frozen-statement-version-1">Frozen statement — version 1</h3>
+<p>Status: candidate. This file specifies the target; it does not assert that the convergence has been proved.</p>
+<p>Scope authorization: the user's latest clarification is “for the moment i think finite stack initial conditions are sufficient”. This fixes the finite-stack scope of the preceding Kim–Landim extension. Do not change this statement to fit a result.</p>
+<h3 id="microscopic-system">Microscopic system</h3>
+<p>For every positive integer \(N\), let \(L_N\) be a positive integer and \(d_N&gt;0\). Assume
+\[
+N/L_N\longrightarrow\rho\in(0,\infty),
+\qquad Nd_N\longrightarrow\Theta\in(0,\infty).
+\]
+Write \(\alpha=\Theta/\rho\), so \(L_Nd_N\to\alpha\), and let \(\mathbb T=\mathbb R/\mathbb Z\) with normalized Haar measure \(\lambda\).</p>
+<p>The discrete torus is \(\mathbb T_{L_N}=\mathbb Z/(L_N\mathbb Z)\). The configuration space is
+\[
+\Omega_N=\{\eta\in\mathbb N_0^{\mathbb T_{L_N}}:\sum_x\eta_x=N\}.
+\]
+The process in the theorem is already accelerated: its generator is
+\[
+\mathcal L_N F(\eta)=\frac{N^2}{d_N}
+ \sum_{x\in\mathbb T_{L_N}}\sum_{y=x\pm1}
+ \eta_x(d_N+\eta_y)\,[F(\eta-\delta_x+\delta_y)-F(\eta)].
+\]
+Both directed nearest-neighbor jumps occur in this sum. A single particle has limiting generator \(\rho^2\partial_{xx}\). The notation \(d_N\), rather than the manuscript's acceleration \(\theta_N\), denotes the small parameter. Only the eventually nondegenerate tori \(L_N\ge3\) matter.</p>
+<p>Define
+\[
+\Phi_N(\eta)=\frac1N\sum_x\eta_x\delta_{x/L_N},
+\qquad \mu_N(t)=\Phi_N(\eta_N(t)).
+\]
+The target concerns this full probability-measure-valued process, not a trace, ranked masses alone, finitely many physical tags, or a fixed collection of moments.</p>
+<h3 id="initial-conditions-and-quantifiers">Initial conditions and quantifiers</h3>
+<p>For every fixed integer \(k\ge1\), allow every deterministic sequence \(\eta_N^0\in\Omega_N\) whose occupied sites number at most \(k\) and are isolated as in Kim–Landim: two distinct occupied sites have circular lattice distance at least two. Assume only that
+\[
+\Phi_N(\eta_N^0)\longrightarrow\mu_0
+\]
+weakly in \(\mathcal P(\mathbb T)\).</p>
+<p>Thus \(\mu_0\) is a probability measure with at most \(k\) atoms. No uniform positive lower bound on the occupied masses divided by \(N\) is imposed; some initial stacks may have vanishing normalized mass. No positive lower bound on macroscopic separations is imposed; initially different sites may converge to the same point. Initial sequences need not be stationary or absolutely continuous relative to any reference measure. The statement quantifies over all fixed \(k\), all parameter sequences above, and all such initial sequences. It does not require initial support sizes growing without bound.</p>
+<h3 id="exact-continuum-target">Exact continuum target</h3>
+<p>The target is fixed by the Brownian sticky-flow semigroups below, rather than by pairwise stickiness alone.</p>
+<p>For \(n\ge1\), let \(\Pi_n\) be all set partitions of \(\{1,\dots,n\}\). For \(\pi\in\Pi_n\), let \(\iota_\pi:\mathbb T^{|\pi|}\to\mathbb T^n\) assign a common coordinate to all indices in each block. The choice of block enumeration has no effect below. Set
+\[
+p_\alpha(\pi)=
+\frac{\alpha^{|\pi|}\Gamma(\alpha)}{\Gamma(\alpha+n)}
+\prod_{B\in\pi}(|B|-1)!,
+\quad
+m_{\alpha,n}=\sum_{\pi\in\Pi_n}p_\alpha(\pi)
+(\iota_\pi)_*\lambda^{\otimes|\pi|}.
+\]
+Let \(P_t^{(n)}\) be the continuous-path Feller semigroup in the Le Jan–Raimond Brownian sticky-flow construction corresponding to the closed form obtained from
+\[
+\mathcal E_n(f,g)=
+\rho^2\sum_{\pi\in\Pi_n}p_\alpha(\pi)
+\int_{\mathbb T^{|\pi|}}
+\nabla(f\circ\iota_\pi)\cdot\nabla(g\circ\iota_\pi)
+\,d\lambda^{\otimes|\pi|}
+\]
+on smooth periodic functions, closed in its form norm on \(L^2(m_{\alpha,n})\).</p>
+<p>This fixes the target identity and time normalization. The reference is Le Jan–Raimond, “Sticky flows on the circle”, arXiv:math/0211387, https://arxiv.org/abs/math/0211387; Le Jan–Lemaire, “Products of Beta matrices and sticky flows”, arXiv:math/0307106, https://arxiv.org/abs/math/0307106, also specifies these semigroups. The cited construction and precise conventions must be checked as mathematical background during the campaign.</p>
+<p>The corresponding Feller mass-process semigroup \(\mathsf P_t\) on \(\mathcal P(\mathbb T)\) is characterized on polynomials by
+\[
+F_f(\mu)=\int f\,d\mu^{\otimes n},
+\qquad
+\mathsf P_t F_f(\mu)=\int P_t^{(n)}f\,d\mu^{\otimes n}.
+\]
+Let \(Q_{\mu_0}\) denote its continuous-path law started at \(\mu_0\). Equivalently, this is transport of \(\mu_0\) by the corresponding random transition kernel. All initial atoms use the same flow; evolving them with independent flows would define a different target.</p>
+<p>The form above defines the target only. The requested convergence proof must use a path-law argument with appropriate tightness and identification; a Mosco-convergence proof is excluded by the user's earlier instruction. A claimed \(L^2\) or equilibrium semigroup limit is not the requested output.</p>
+<h3 id="exact-claim-to-prove-or-refute">Exact claim to prove or refute</h3>
+<p>For every choice covered above,
+\[
+\operatorname{Law}_{\eta_N^0}(\mu_N(\cdot))
+\Longrightarrow Q_{\mu_0}
+\quad\hbox{in }D([0,\infty),\mathcal P(\mathbb T)),
+\]
+where \(\mathcal P(\mathbb T)\) has its weak topology and the path space has the Skorokhod \(J_1\) topology. The target law is supported on \(C([0,\infty),\mathcal P(\mathbb T))\).</p>
+<p>A proof must address prescribed initial configurations, the full mass law, all finite time horizons, tightness, and unique identification. A refutation must give a completely specified sequence satisfying all hypotheses and prove failure of this exact conclusion (including verification of the target used in the comparison).</p>
+<h3 id="success-criteria-and-excluded-substitutes">Success criteria and excluded substitutes</h3>
+<p>Completion requires a complete proof or refutation of the exact claim at promoted status after the user's leakage check, hostile audit, proof-blind reconstruction, and comparison cadence, including all required supplemental audits. If an eligible outside-family verifier is available, run that additional audit; otherwise disclose its absence prominently and deliver at promoted status.</p>
+<p>Special-case results, reductions to another unproved conjecture, calculations through any fixed size, equilibrium results, and uncertified candidate counterexamples do not complete the campaign. Partial lemmas may be promoted as dependencies but are not the endpoint. Mathematical status may never exceed the weakest premise used.</p>
+<p>This version is fixed. Any genuine ambiguity discovered later must be referred to the user; do not silently reinterpret or edit the target.</p>
+<p>--- END VERBATIM STATEMENT-v1 ---</p>
+<h3 id="exact-promoted-dependencies">Exact promoted dependencies</h3>
+<p>The exact promoted campaign premises are the following contracts, as authorized by the assigning root. Their immutable creation-time candidate headers do not alter that version-specific authorization.</p>
+<table>
+<thead>
+<tr>
+<th>Dependency</th>
+<th>Exact contract SHA-256</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CANDIDATES/C0002_resolvent_path_transfer/CONTRACT_v1.md</td>
+<td>d42cb0e8db6e9667f77d45f7e4d54994179e48b206fb343af6e50eaf67057c6b</td>
+</tr>
+<tr>
+<td>CANDIDATES/C0005_harmonic_correctors/CONTRACT_v2.md</td>
+<td>0a0130d01e482dbe546a19248b1ca67180aa373643dace7a87abc5cff8eb8cec</td>
+</tr>
+<tr>
+<td>CANDIDATES/C0006_uniform_thin_layers/CONTRACT_v2.md</td>
+<td>805ea9a15da4e350f0af208075932c45473a8f499a89f77f050c6c916c4891b9</td>
+</tr>
+</tbody>
+</table>
+<p>The root supplied the following administrative bindings; these files were not read and their contents are not additional premises. C0002 is backed by PROOF_v2, SHA-256 dc06b8b7e052bc994905afaa3b7fe168d7cde233dfa52e5e0355f5458c809a06. C0005 is backed by PROOF_v2, SHA-256 68a9fec530428b3fd61e9f3bef1564e3ad3bcbd905d0cf0b51801a58bd6fc5ef, with promotion-record hash 1bf64ca79f7b6111b3214f498a6b72cd1a0ca884099249787d02ed440820d3b0. C0006 is backed by PROOF_v3, SHA-256 9a4e9936a55b8e4179c3c964eb297236ac06d008425bb64f9e48eb4856dc4186, with promotion-record hash 00029358267ef6c4febde6c535432d90a380a762a572957bfecb898a02e0a730. The supplied PROVED P-004 hash is 5fc2ba10e2657ba681150b181c53bab241387891d88123e72cef1a32654444fb.</p>
+<p>No other candidate, author module, audit, reconstruction, or registry assertion is a mathematical premise. Ordinary continuum background is restricted to the named Le Jan–Raimond and Howitt–Warren results cited in the proof, and the elementary probabilistic and functional-analytic background stated there.</p><hr><p><a href="../../../downloads/records/CANDIDATES/C0008_full_mass_convergence/CONTRACT_v1.md" download>Markdown</a> · <a href="#" onclick="window.print(); return false">Print / save PDF</a></p>
+      </main>
+    </div>
+  </body>
+</html>

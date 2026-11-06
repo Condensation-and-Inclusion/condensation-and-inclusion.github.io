@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>C0005 version and provenance record — v2 · Raw · Sticky Inclusion · Condensation and Inclusion</title>
+    <link rel="stylesheet" href="../../../../../assets/style.css">
+    <script>
+      window.MathJax = {
+        tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+          processEscapes: true, tags: 'ams' }
+      };
+    </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml-full.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Condensation and Inclusion</h1>
+        <nav class="menu" aria-label="Main">
+        <a href="../../../../../">Home</a>
+        <span class="sep" aria-hidden="true">·</span>
+        <a href="../../../../" aria-current="location">Topics</a>
+        <span class="sep" aria-hidden="true">·</span>
+        <a href="../../../../../literature/">Literature</a>
+      </nav>
+      </header>
+      <hr>
+      <main>
+      <h2>Sticky Inclusion</h2>
+      <nav class="menu" aria-label="Topic">
+        <a href="../../../">Overview</a>
+        <span class="sep" aria-hidden="true">·</span>
+        <a href="../../../digested/">Digested</a>
+        <span class="sep" aria-hidden="true">·</span>
+        <a href="../../../raw/" aria-current="location">Raw</a>
+      </nav>
+      <hr>
+<p class="ai-note"><strong>Fixed source record.</strong> Creation-time labels remain unchanged. No human or outside-family model audit is recorded.</p><details><summary>Contents</summary><div class="toc">
+<ul>
+<li><a href="#what-was-overwritten-and-what-is-preserved">What was overwritten, and what is preserved</a></li>
+<li><a href="#exact-ordered-event-record">Exact ordered event record</a></li>
+<li><a href="#mathematical-distinction-in-the-event-count">Mathematical distinction in the event count</a></li>
+<li><a href="#canonical-mathematical-and-brief-files">Canonical mathematical and brief files</a></li>
+</ul>
+</div>
+</details><h3 id="c0005-version-and-provenance-record-v2">C0005 version and provenance record — v2</h3>
+<p>Status: <strong>candidate; administrative provenance record</strong>. The canonical tuple intended for its first verification submission is CONTRACT_v2.md, PROOF_v2.md, BRIEF_v2.md, and AUTHOR_INPUTS_v2.md. No v1 audit has run, and no v1 verification or promotion is claimed. This record candidly documents a pre-audit versioning failure; it does not retroactively make the earlier overwrites compliant.</p>
+<h3 id="what-was-overwritten-and-what-is-preserved">What was overwritten, and what is preserved</h3>
+<p>The author first created CONTRACT_v1.md and PROOF_v1.md, then changed their written mathematical text in place. The author treated this as pre-freeze drafting, but the campaign's immutable-version rule required a new version once the written definition changed. In particular, the first contract's event count said “before that entrance”; the edited contract includes an entrance-causing independent jump. The current v1 bytes are therefore not the unchanged first-created bytes.</p>
+<p>Every existing file has been preserved since the root's explicit no-further-overwrite instruction. The current v1 tuple remains available with the following hashes:</p>
+<table>
+<thead>
+<tr>
+<th>Existing file</th>
+<th>SHA256</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CONTRACT_v1.md</td>
+<td>4fa850e20b2eec486404aefec1c003968544460fc83721a796fd5037cd4aa7bc</td>
+</tr>
+<tr>
+<td>PROOF_v1.md</td>
+<td>371c63744240b5b878fc7d9a7f656f953300f23cbb51bd710d3d2dab6fbfd90e</td>
+</tr>
+<tr>
+<td>BRIEF_v1.md</td>
+<td>86963226ce3ec177f4a6a20b21bdea6d2770dea107a79e85b9fd5b9bb2ffc351</td>
+</tr>
+<tr>
+<td>AUTHOR_INPUTS_v1.md</td>
+<td>55d8c34dd69c4366b8eb64037e032e36bb1d2ee2cb0921dd466082637c07c53d</td>
+</tr>
+</tbody>
+</table>
+<p>The files named CONTRACT_initial_written_draft.md and PROOF_initial_written_draft.md are <strong>reconstructions from the recorded patch</strong>, not untouched originals. After the overwrite, the author recovered their text by applying the exact inverse of the five recorded substitutions to the current contract and proof. Their hashes were computed after recovery, not pinned at the original creation time. The recorded initial creation patch and the inverse patch are the provenance for this reconstruction. The recovery operation wrote new files and did not change the current v1 files.</p>
+<table>
+<thead>
+<tr>
+<th>Reconstructed earlier text; not an untouched original</th>
+<th>SHA256</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CONTRACT_initial_written_draft.md</td>
+<td>27c16421ccd86d057f687b8100676c27cc603dc9d6212031649b56e8f2617970</td>
+</tr>
+<tr>
+<td>PROOF_initial_written_draft.md</td>
+<td>9663f84e7fcf6002a351e1fbce9e3c1ce42d6b97c4846bae90383509a16520d7</td>
+</tr>
+</tbody>
+</table>
+<h3 id="exact-ordered-event-record">Exact ordered event record</h3>
+<ol>
+<li>The author read only the five authorized external files, recorded in AUTHOR_INPUTS_v2.md, and wrote the initial CONTRACT_v1.md and PROOF_v1.md through two creation patches. No brief or input-manifest file yet existed for those initial bytes.</li>
+<li>The root sent an administrative reminder about literal backslashes, balanced delimiters, explicit definitions, and definition-only hints; it supplied no mathematical source or premise. The author also read the written contract with a text-search command.</li>
+<li>The author overwrote three contract passages: the symmetry map was defined on the real ambient space while preserving the lattice; only the absorption difference was said to have zero boundary values; and the event count was changed from “before that entrance” to include the entrance-causing independent jump. Two proof passages were changed correspondingly: the restart paragraph explicitly counted a terminal independent event, and the author-change paragraph explained why it must be counted. Those are exactly the five substitutions inverted in the recovery script.</li>
+<li>The author sent the root a message disclosing the inclusive terminal-event convention and the other explicit quantitative details. The text-only finalization script checked the five unchanged source hashes and the current contract/proof delimiters, then generated BRIEF_v1.md and AUTHOR_INPUTS_v1.md. Consequently the preserved v1 brief embeds the edited current v1 contract, not the earlier reconstructed contract.</li>
+<li>After that operation, the root stated that it had already read the written CONTRACT_v1.md and PROOF_v1.md, required preservation of the bytes, and instructed that a changed mathematical event-count definition use v2. This is author/root exposure, not an independent verification. The message did not pin the hashes of the particular bytes read; this record does not invent a more precise exposure hash or time.</li>
+<li>The author replied candidly that the three contract and two proof clarifications had already been made, reported all four current v1 hashes, and promised no further mathematical overwrite. The author ran the text-only inverse-patch recovery script, creating the two recovered draft files with the hashes above.</li>
+<li>The root then explicitly classified the overwrite as a pre-audit versioning failure, required that recovered text be labelled reconstructed, and requested a new canonical v2 contract, proof, exact-contract brief, complete input manifest, and this provenance record. It specified counting on ((0,  au_d]), with zero events when the initiating-step state is already in (S_n). The root stated that no v1 audit had run and that v2 would be the first tuple submitted for verification.</li>
+<li>The author acknowledged those requirements and created the five new v2 files without overwriting any existing file. All source and preserved-file hashes were rechecked. The v2 brief embeds its exact v2 contract, and the contract/proof explicitly state the inclusive excursion-clock interval.</li>
+</ol>
+<p>No independent verifier read a C0005 candidate during this author assignment. No audit, reconstruction, registry, or other-route content was supplied through these messages.</p>
+<h3 id="mathematical-distinction-in-the-event-count">Mathematical distinction in the event count</h3>
+<p>The canonical count is the number of independent events on ((0, au_d]) after the initiating step. Its value is zero if that step already reaches (S_n). In particular the entrance jump is counted if it is independent. This convention is needed both in the visited-site displacement count and in the implication that (J=0) leaves the perturbed excursion identical to pure interaction.</p>
+<p>The literal exclusion of a terminal event can fail already with two labels. Start from a full stack at zero and let the initiating step produce the adjacent tuple ((0,1)). The next independent jump of the label at zero to minus one has positive rate (d), can occur before any interaction jump, and reaches the stable tuple ((-1,1)). If that terminal jump were excluded, the count would be zero. Pure interaction from ((0,1)) absorbs at a full stack at either zero or one, so its endpoint is different. This identifies a defect in the earlier C0005 wording; it is not a claim that the source C0004's unspecified endpoint convention used the defective interpretation.</p>
+<p>The two other contract clarifications make the stated objects well typed: a symmetry acts on the real domain of (f) and preserves the lattice, and the zero-boundary assertion applies to (P_db-Pb), not to a trace-generator difference defined on the boundary itself. The current v1 already contains these clarifications; v2 preserves them and makes the inclusive time interval literal. The rest of the mathematical argument is unchanged from the preserved current v1 proof, apart from version references and that explicit event-count interval. All claims remain candidate.</p>
+<h3 id="canonical-mathematical-and-brief-files">Canonical mathematical and brief files</h3>
+<table>
+<thead>
+<tr>
+<th>Canonical file</th>
+<th>SHA256</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CONTRACT_v2.md</td>
+<td>0a0130d01e482dbe546a19248b1ca67180aa373643dace7a87abc5cff8eb8cec</td>
+</tr>
+<tr>
+<td>PROOF_v2.md</td>
+<td>68a9fec530428b3fd61e9f3bef1564e3ad3bcbd905d0cf0b51801a58bd6fc5ef</td>
+</tr>
+<tr>
+<td>BRIEF_v2.md</td>
+<td>35a10be2298890820aeeb7ab72d47e3a0602f9ea7907cbd20666648353ed4e5b</td>
+</tr>
+</tbody>
+</table>
+<p>The final digests of this record and AUTHOR_INPUTS_v2.md are returned to the root; neither document contains a self-referential digest.</p><hr><p><a href="../../../downloads/records/CANDIDATES/C0005_harmonic_correctors/VERSION_NOTE_v2.md" download>Markdown</a> · <a href="#" onclick="window.print(); return false">Print / save PDF</a></p>
+      </main>
+    </div>
+  </body>
+</html>
